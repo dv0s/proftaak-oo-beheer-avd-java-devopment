@@ -12,15 +12,15 @@
 Clone repo from GitHub: [github.com/vweltje/proftaak-oo-beheer-avd-java-devopment](https://github.com/vweltje/proftaak-oo-beheer-avd-java-devopment) and open project with IntelliJ.
 
 #### Create a library
-Go to `File -> Project Structure -> Libraries` and add the JavaFX 14 SDK as a library to the project. Point to the `lib` folder of the JavaFX SDK.
+Go to `File -> Project Structure -> Libraries` and add the JavaFX 14 SDK as a library to the project. Point to the `lib` folder of the JavaFX SDK (`PATH/TO/YOUR/REPO/lib/javafx-sdk-14/lib`).
 Once the library is applied, the JavaFX classes will be recognized by the IDE.
 
 ####  Add VM options
-Click on Run -> Edit Configurations... and add these VM options:
+Click on `Run -> Edit Configurations...` and add these VM options:
 
-Mac/Linux: `--module-path /path/to/javafx-sdk-14/lib --add-modules javafx.controls,javafx.fxml`
+Mac/Linux: `--module-path PATH/TO/YOUR/REPO/lib/javafx-sdk-14/lib --add-modules javafx.controls,javafx.fxml`
 
-Windows: `--module-path "\path\to\javafx-sdk-14\lib" --add-modules javafx.controls,javafx.fxml`
+Windows: `--module-path "\PATH\TO\YOUR\REPO\lib\javafx-sdk-14\lib" --add-modules javafx.controls,javafx.fxml`
 
 #### Run the project
 Click `Run -> Run...` to run the project, now it should work fine.
