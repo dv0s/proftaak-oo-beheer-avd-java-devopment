@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
+<?import javafx.scene.control.ComboBox?>
 <VBox prefHeight="305.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="shapes.Controller">
    <padding>
       <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
@@ -34,11 +35,11 @@
                         <Insets bottom="4.0" />
                      </VBox.margin>
                   </Label>
-                  <ChoiceBox maxWidth="1.7976931348623157E308">
+                  <ComboBox fx:id="shapeOptions" maxWidth="1.7976931348623157E308" promptText="Choose a shape">
                      <VBox.margin>
                         <Insets bottom="16.0" />
                      </VBox.margin>
-                  </ChoiceBox>
+                  </ComboBox>
                   <Label text="Contents">
                      <VBox.margin>
                         <Insets bottom="4.0" />
@@ -73,16 +74,20 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
-                  <ListView prefHeight="132.0" prefWidth="276.0">
+                  <ListView prefHeight="239.0" prefWidth="275.0">
                      <VBox.margin>
                         <Insets bottom="16.0" />
                      </VBox.margin>
                   </ListView>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Total contents" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Total contents">
+                     <VBox.margin>
+                        <Insets bottom="16.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" />
                </children>
             </VBox>
