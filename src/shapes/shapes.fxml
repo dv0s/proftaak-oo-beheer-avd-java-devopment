@@ -1,0 +1,6 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400" prefWidth="600" xmlns:fx="http://javafx.com/fxml" fx:controller="shapes.Controller">
+    <Label text="Yew it works!" />
+</VBox>
