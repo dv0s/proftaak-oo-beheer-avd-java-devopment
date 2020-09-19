@@ -13,8 +13,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.avd.javadev.proftaak.ShapeController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.avd.javadev.proftaak.ShapesController">
     <padding>
         <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
     </padding>
@@ -70,7 +69,7 @@
                                 <Insets bottom="16.0" />
                             </VBox.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Load" onAction="#loadFromTextFile" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Load" onAction="#loadFromTextFile"/>
                     </children>
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -89,7 +88,7 @@
                                 <Insets bottom="16.0" />
                             </VBox.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" onAction="#deleteSelectedShape" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" onAction="#deleteSelectedShape"/>
                     </children>
                 </VBox>
             </children>
