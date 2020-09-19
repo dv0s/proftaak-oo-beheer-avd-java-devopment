@@ -13,8 +13,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<VBox prefHeight="311.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.avd.javadev.proftaak.ShapesController">
-
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.avd.javadev.proftaak.ShapeController">
     <padding>
         <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
     </padding>
@@ -40,16 +39,6 @@
                             <VBox.margin>
                                 <Insets bottom="16.0" />
                             </VBox.margin>
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="Cube"/>
-                                    <String fx:value="Cylinder"/>
-                                    <String fx:value="Sphere"/>
-                                    <String fx:value="Cone"/>
-                                    <String fx:value="Pyramid"/>
-                                    <String fx:value="Prism"/>
-                                </FXCollections>
-                            </items>
                         </ComboBox>
                         <Label text="Contents">
                             <VBox.margin>
