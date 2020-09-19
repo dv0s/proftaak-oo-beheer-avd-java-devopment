@@ -11,7 +11,7 @@ import javafx.scene.control.ComboBox;
 
 public class ShapesController implements Initializable {
 
-    private String[] shapes = {"Cube", "Cylinder", "Sphere", "Cone", "Pyramid", "Prism"};
+    private String[] shapes = {"Cone", "Cube", "Cylinder", "Prism", "Pyramid", "Sphere"};
 
     @FXML
     private ComboBox<String> shapeOptions;
@@ -23,11 +23,29 @@ public class ShapesController implements Initializable {
 
     private void initShapeOptionsDropdown() {
         shapeOptions.getItems().setAll(this.shapes);
-        shapeOptions.getSelectionModel().selectedItemProperty().addListener((selected, oldValue, newValue) -> handleShapeOptionsChange(newValue));
+        shapeOptions.getSelectionModel().selectedItemProperty().addListener((selected, oldValue, newValue) -> {
+            try {
+                handleShapeOptionsChange(newValue);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    private void handleShapeOptionsChange(String newValue) {
-        System.out.println(newValue);
+    private void handleShapeOptionsChange(String newValue) throws IOException {
+        if (newValue.equals("Cone")) {
+            App.setRoot("shapes/cone");
+        } else if (newValue.equals("Cube")) {
+            App.setRoot("shapes/cube");
+        } else if (newValue.equals("Cylinder")) {
+            App.setRoot("shapes/cylinder");
+        } else if (newValue.equals("Prism")) {
+            App.setRoot("shapes/prism");
+        } else if (newValue.equals("Pyramid")) {
+            App.setRoot("shapes/pyramid");
+        } else if (newValue.equals("Sphere")) {
+            App.setRoot("shapes/sphere");
+        }
     }
 
     @FXML
