@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="proftaak-oo-beheer-avd-java-devopment" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="sample.Main" />
-    <module name="proftaak-oo-beheer-avd-java-devopment" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>
