@@ -64,12 +64,12 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="191.0" GridPane.rowIndex="1">
                     <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Save" onAction="#saveToDatabase">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Save">
                             <VBox.margin>
                                 <Insets bottom="16.0" />
                             </VBox.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Load" onAction="#loadFromTextFile"/>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Load" />
                     </children>
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -83,12 +83,12 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Total contents" onAction="#calculateTotalContents">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Total contents">
                             <VBox.margin>
                                 <Insets bottom="16.0" />
                             </VBox.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" onAction="#deleteSelectedShape"/>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" />
                     </children>
                 </VBox>
             </children>
