@@ -37,7 +37,6 @@ public class Dashboard implements Initializable {
 
     private void handleShapeOptionsChange(String newShape) throws IOException {
         Shape shape = null;
-
         if (newShape.equals(ShapeType.CONE.toString())) {
             shape = new Cone();
         } else if (newShape.equals(ShapeType.CUBE.toString())) {
@@ -55,6 +54,7 @@ public class Dashboard implements Initializable {
             shape.openScene();
             shapes.addShape(shape);
         }
+        shapes.printShapes();
     }
 
     @FXML

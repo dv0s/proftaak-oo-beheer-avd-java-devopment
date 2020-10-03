@@ -25,7 +25,10 @@ public class Shapes {
     }
 
     public void printShapes() {
-        System.out.println("Print all shapes");
+        System.out.println("Current shapes: ");
+        for (Shape shape : shapes) {
+            System.out.println(shape.toString());
+        }
     }
 
 }
