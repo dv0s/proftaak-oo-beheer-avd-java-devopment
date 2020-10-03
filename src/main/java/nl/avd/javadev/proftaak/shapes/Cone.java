@@ -1,29 +1,27 @@
 package nl.avd.javadev.proftaak.shapes;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import nl.avd.javadev.proftaak.App;
+import nl.avd.javadev.proftaak.Shape;
+import nl.avd.javadev.proftaak.ShapeType;
+import nl.avd.javadev.proftaak.iShape;
 
-public class Cone implements Initializable {
+public class Cone extends Shape implements iShape {
+
+    public Cone() {
+        this.shapeType = ShapeType.CONE;
+    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Cone");
+    public void getType() {
+
     }
 
-    @FXML
-    private void saveShape(ActionEvent event) {
-        System.out.println("TODO: Save input to database");
+    @Override
+    public void getVolume() {
+
     }
 
-    @FXML
-    private void discardChanges(ActionEvent event) throws IOException {
-        System.out.println("TODO: Load data from text file");
-        App.setRoot("dashboard");
-    }
+    @Override
+    public void calculateVolume() {
 
+    }
 }

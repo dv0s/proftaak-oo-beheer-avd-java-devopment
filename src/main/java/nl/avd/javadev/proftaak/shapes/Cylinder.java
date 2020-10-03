@@ -1,30 +1,27 @@
 package nl.avd.javadev.proftaak.shapes;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import nl.avd.javadev.proftaak.App;
+import nl.avd.javadev.proftaak.Shape;
+import nl.avd.javadev.proftaak.ShapeType;
+import nl.avd.javadev.proftaak.iShape;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+public class Cylinder extends Shape implements iShape {
 
-public class Cylinder implements Initializable {
+    public Cylinder() {
+        this.shapeType = ShapeType.CYLINDER;
+    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Cylinder");
+    public void getType() {
+
     }
 
-    @FXML
-    private void saveShape(ActionEvent event) {
-        System.out.println("TODO: Save input to database");
+    @Override
+    public void getVolume() {
+
     }
 
-    @FXML
-    private void discardChanges(ActionEvent event) throws IOException {
-        System.out.println("TODO: Load data from text file");
-        App.setRoot("dashboard");
-    }
+    @Override
+    public void calculateVolume() {
 
+    }
 }

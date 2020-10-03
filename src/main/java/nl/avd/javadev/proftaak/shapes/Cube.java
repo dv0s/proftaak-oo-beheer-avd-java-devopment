@@ -1,30 +1,29 @@
 package nl.avd.javadev.proftaak.shapes;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import nl.avd.javadev.proftaak.App;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import nl.avd.javadev.proftaak.Shape;
+import nl.avd.javadev.proftaak.ShapeType;
+import nl.avd.javadev.proftaak.iShape;
 
-public class Cube implements Initializable {
+public class Cube extends Shape implements iShape {
+
+    public Cube() {
+        this.shapeType = ShapeType.CUBE;
+    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Cube");
+    public void getType() {
+
     }
 
-    @FXML
-    private void saveShape(ActionEvent event) {
-        System.out.println("TODO: Save input to database");
+    @Override
+    public void getVolume() {
+
     }
 
-    @FXML
-    private void discardChanges(ActionEvent event) throws IOException {
-        System.out.println("TODO: Load data from text file");
-        App.setRoot("dashboard");
-    }
+    @Override
+    public void calculateVolume() {
 
+    }
 }

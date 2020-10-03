@@ -4,27 +4,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import nl.avd.javadev.proftaak.App;
+import nl.avd.javadev.proftaak.Shape;
+import nl.avd.javadev.proftaak.ShapeType;
+import nl.avd.javadev.proftaak.iShape;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Prism implements Initializable {
+public class Prism  extends Shape implements iShape {
+    public Prism() {
+        this.shapeType = ShapeType.PRISM;
+    }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Prism");
+    public void getType() {
+
     }
 
-    @FXML
-    private void saveShape(ActionEvent event) {
-        System.out.println("TODO: Save input to database");
+    @Override
+    public void getVolume() {
+
     }
 
-    @FXML
-    private void discardChanges(ActionEvent event) throws IOException {
-        System.out.println("TODO: Load data from text file");
-        App.setRoot("dashboard");
-    }
+    @Override
+    public void calculateVolume() {
 
+    }
 }

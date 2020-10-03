@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import nl.avd.javadev.proftaak.shapes.*;
 
 public class Dashboard implements Initializable {
 
@@ -15,6 +16,7 @@ public class Dashboard implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(ShapeType.values());
         this.initShapesDropdown();
     }
 
@@ -30,11 +32,27 @@ public class Dashboard implements Initializable {
         });
     }
 
-    private void handleShapeOptionsChange(String newValue) throws IOException {
-        for (String shapeName : ShapeType.shapeNames) {
-            if (shapeName.equals(newValue)) {
-                App.setRoot("shapes/" + shapeName);
-            }
+    private void handleShapeOptionsChange(String newShape) throws IOException {
+        Shape shape = null;
+
+        if (newShape.equals(ShapeType.CONE.toString())) {
+            shape = new Cone();
+        } else if (newShape.equals(ShapeType.CUBE.toString())) {
+            shape = new Cube();
+        } else if (newShape.equals(ShapeType.CYLINDER.toString())) {
+            shape = new Cylinder();
+        } else if (newShape.equals(ShapeType.PRISM.toString())) {
+            shape = new Prism();
+        } else if (newShape.equals(ShapeType.PYRAMID.toString())) {
+            shape = new Pyramid();
+        } else if (newShape.equals(ShapeType.SPHERE.toString())) {
+            shape = new Sphere();
+        }
+        if (shape != null) {
+            System.out.println(shape.toString());
+        }
+        else {
+            System.out.println("gvd");
         }
     }
 
