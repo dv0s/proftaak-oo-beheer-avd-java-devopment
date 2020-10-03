@@ -1,18 +1,18 @@
-package nl.avd.javadev.proftaak;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+package nl.avd.javadev.proftaak.shapes;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import nl.avd.javadev.proftaak.App;
 
-public class PyramidController implements Initializable {
+public class Cone implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Pyramid");
+        System.out.println("Cone");
     }
 
     @FXML
@@ -23,7 +23,7 @@ public class PyramidController implements Initializable {
     @FXML
     private void discardChanges(ActionEvent event) throws IOException {
         System.out.println("TODO: Load data from text file");
-        App.setRoot("shapes");
+        App.setRoot("dashboard");
     }
 
 }

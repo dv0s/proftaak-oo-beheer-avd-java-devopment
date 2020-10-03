@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
-public class ShapesController implements Initializable {
+public class Dashboard implements Initializable {
 
     private String[] shapes = {"Cone", "Cube", "Cylinder", "Prism", "Pyramid", "Sphere"};
 

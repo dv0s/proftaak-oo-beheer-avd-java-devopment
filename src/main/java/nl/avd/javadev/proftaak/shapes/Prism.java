@@ -1,18 +1,19 @@
-package nl.avd.javadev.proftaak;
+package nl.avd.javadev.proftaak.shapes;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import nl.avd.javadev.proftaak.App;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CubeController implements Initializable {
+public class Prism implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Cube");
+        System.out.println("Prism");
     }
 
     @FXML
@@ -23,7 +24,7 @@ public class CubeController implements Initializable {
     @FXML
     private void discardChanges(ActionEvent event) throws IOException {
         System.out.println("TODO: Load data from text file");
-        App.setRoot("shapes");
+        App.setRoot("dashboard");
     }
 
 }

@@ -1,18 +1,19 @@
-package nl.avd.javadev.proftaak;
+package nl.avd.javadev.proftaak.shapes;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import nl.avd.javadev.proftaak.App;
 
-public class ConeController implements Initializable {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Cube implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Cone");
+        System.out.println("Cube");
     }
 
     @FXML
@@ -23,7 +24,7 @@ public class ConeController implements Initializable {
     @FXML
     private void discardChanges(ActionEvent event) throws IOException {
         System.out.println("TODO: Load data from text file");
-        App.setRoot("shapes");
+        App.setRoot("dashboard");
     }
 
 }

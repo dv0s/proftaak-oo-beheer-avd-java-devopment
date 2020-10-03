@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefWidth="248.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.avd.javadev.proftaak.SphereController">
+<VBox alignment="CENTER" prefWidth="248.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.avd.javadev.proftaak.shapes.Sphere">
    <children>
       <Label text="Sphere" textAlignment="CENTER">
          <VBox.margin>
