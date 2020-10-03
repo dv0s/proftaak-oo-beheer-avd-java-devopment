@@ -18,7 +18,6 @@ public class Shape implements Initializable {
 
     public void openScene() {
         try {
-            System.out.println(shapeType.toString());
             App.setRoot("shapes/" + shapeType.toString().toLowerCase());
         } catch (IOException e) {
             e.printStackTrace();

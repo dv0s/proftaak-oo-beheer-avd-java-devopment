@@ -13,10 +13,14 @@ public class Dashboard implements Initializable {
 
     @FXML
     private ComboBox<String> shapesDropdown;
+    private Shapes shapes;
+
+    public Dashboard() {
+        this.shapes = new Shapes();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(ShapeType.values());
         this.initShapesDropdown();
     }
 
@@ -49,6 +53,7 @@ public class Dashboard implements Initializable {
         }
         if (shape != null) {
             shape.openScene();
+            shapes.addShape(shape);
         }
     }
 
