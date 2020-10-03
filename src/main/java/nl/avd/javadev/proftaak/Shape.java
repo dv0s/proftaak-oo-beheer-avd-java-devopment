@@ -12,14 +12,22 @@ public class Shape implements Initializable {
 
     public ShapeType shapeType;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(shapeType);
+    public Shape(ShapeType shapeType) {
+        this.shapeType = shapeType;
+    }
+
+    public void openScene() {
         try {
-            App.setRoot("shapes/" + shapeType.toString());
+            System.out.println(shapeType.toString());
+            App.setRoot("shapes/" + shapeType.toString().toLowerCase());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(shapeType);
     }
 
     @FXML
@@ -35,6 +43,6 @@ public class Shape implements Initializable {
 
     @Override
     public String toString() {
-        return "Feest ik ben een: " + shapeType.toString();
+        return "Feest, ik ben een: " + shapeType.toString();
     }
 }

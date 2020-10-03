@@ -21,8 +21,7 @@ public class Dashboard implements Initializable {
     }
 
     private void initShapesDropdown() {
-        System.out.println(ShapeType.shapeNames);
-        shapesDropdown.getItems().setAll(ShapeType.shapeNames);
+        shapesDropdown.getItems().setAll(ShapeType.getShapeNameObject());
         shapesDropdown.getSelectionModel().selectedItemProperty().addListener((selected, oldValue, newValue) -> {
             try {
                 handleShapeOptionsChange(newValue);
@@ -49,10 +48,7 @@ public class Dashboard implements Initializable {
             shape = new Sphere();
         }
         if (shape != null) {
-            System.out.println(shape.toString());
-        }
-        else {
-            System.out.println("gvd");
+            shape.openScene();
         }
     }
 

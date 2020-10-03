@@ -7,7 +7,7 @@ import nl.avd.javadev.proftaak.iShape;
 public class Cone extends Shape implements iShape {
 
     public Cone() {
-        this.shapeType = ShapeType.CONE;
+        super(ShapeType.CONE);
     }
 
     @Override

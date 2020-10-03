@@ -1,5 +1,7 @@
 package nl.avd.javadev.proftaak;
 
+import java.util.ArrayList;
+
 public enum ShapeType {
     CONE,
     CUBE,
@@ -7,8 +9,6 @@ public enum ShapeType {
     PRISM,
     PYRAMID,
     SPHERE;
-
-    public static String[] shapeNames = {"Cone", "Cube", "Cylinder", "Prism", "Pyramid", "Sphere"};
 
     public String toString(){
         switch(this){
@@ -26,5 +26,13 @@ public enum ShapeType {
                 return "Sphere";
         }
         return null;
+    }
+
+    public static ArrayList<String> getShapeNameObject() {
+        ArrayList<String> names = new ArrayList<>();
+        for (ShapeType value : ShapeType.values()) {
+            names.add(value.toString());
+        }
+        return names;
     }
 }

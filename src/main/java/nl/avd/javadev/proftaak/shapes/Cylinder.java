@@ -7,7 +7,7 @@ import nl.avd.javadev.proftaak.iShape;
 public class Cylinder extends Shape implements iShape {
 
     public Cylinder() {
-        this.shapeType = ShapeType.CYLINDER;
+        super(ShapeType.CYLINDER);
     }
 
     @Override
