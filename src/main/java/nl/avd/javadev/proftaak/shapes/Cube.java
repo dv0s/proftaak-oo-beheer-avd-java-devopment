@@ -4,15 +4,15 @@ import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.iShape;
 
+import java.util.Map;
+
 public class Cube extends Shape implements iShape {
 
-    public Cube() {
-        super(ShapeType.CUBE);
-    }
-
-    @Override
-    public void getType() {
-
+    public Cube(Map<String, String> properties) {
+        super();
+        this.type = ShapeType.CUBE;
+        this.fields = new String[]{"length", "width", "height"};
+        this.setProperties(properties);
     }
 
     @Override

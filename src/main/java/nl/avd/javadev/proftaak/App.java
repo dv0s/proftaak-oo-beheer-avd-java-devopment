@@ -19,6 +19,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene((Parent) loadFXML("dashboard"));
         stage.setScene(scene);
+        stage.setTitle("Dashboard");
         stage.show();
     }
 
