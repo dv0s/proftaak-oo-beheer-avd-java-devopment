@@ -2,17 +2,20 @@ package nl.avd.javadev.proftaak;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import nl.avd.javadev.proftaak.shapes.*;
 
 public class Dashboard implements Initializable {
 
-    @FXML private ComboBox<String> shapesDropdown;
+    @FXML public ComboBox<String> shapesDropdown;
+    @FXML public ListView shapesListView;
     private Shapes shapes;
 
     public Dashboard() {
@@ -22,6 +25,7 @@ public class Dashboard implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.initShapesDropdown();
+        this.fillShapesListView();
     }
 
     private void initShapesDropdown() {
@@ -38,6 +42,13 @@ public class Dashboard implements Initializable {
                 }
             }
         );
+    }
+
+    private void fillShapesListView() {
+        this.shapesListView.getItems().clear();
+        this.shapes.getShapes().forEach((shape) -> {
+            this.shapesListView.getItems().add(shape.toString());
+        });
     }
 
     private void handleShapeOptionsChange(String newShape) throws IOException {
@@ -58,7 +69,9 @@ public class Dashboard implements Initializable {
         }
         if (shape != null && shape.getProperties().size() > 0) {
             System.out.println(shape.getProperties());
+            this.shapes.addShape(shape);
             this.shapes.printShapes();
+            this.fillShapesListView();
         }
 //        this.shapesDropdown.getSelectionModel().clearSelection();
 //        this.shapesDropdown.setValue(null);

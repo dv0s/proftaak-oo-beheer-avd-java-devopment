@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Shape  {
 
@@ -69,5 +70,12 @@ public class Shape  {
 
     public Map<String, String> getProperties() {
         return this.properties;
+    }
+
+    public String toString() {
+        String propertiesSting = properties.keySet().stream()
+                .map(key -> key + ": " + properties.get(key))
+                .collect(Collectors.joining(", ", "", ""));
+        return this.type + " - " + propertiesSting;
     }
 }
