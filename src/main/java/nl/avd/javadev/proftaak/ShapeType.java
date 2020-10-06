@@ -27,12 +27,4 @@ public enum ShapeType {
         }
         return null;
     }
-
-    public static ArrayList<String> getShapeNameObject() {
-        ArrayList<String> names = new ArrayList<>();
-        for (ShapeType value : ShapeType.values()) {
-            names.add(value.toString());
-        }
-        return names;
-    }
 }
