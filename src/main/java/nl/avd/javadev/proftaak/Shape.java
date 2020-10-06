@@ -1,9 +1,11 @@
 package nl.avd.javadev.proftaak;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -12,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Shape  {
+public class Shape {
 
     private Stage window = new Stage();
     protected ShapeType type;
@@ -32,24 +34,27 @@ public class Shape  {
     }
 
     protected void showStage() {
-        for (String field : this.fields) {
-            textFields.put(field, new TextField());
-        }
-
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
         window.setMinWidth(250);
         VBox layout = new VBox(16);
-
+        layout.setPadding(new Insets(20));
         saveButton.setOnAction(e -> this.saveAction());
         cancelButton.setOnAction(e -> this.cancelAction());
 
-        textFields.forEach((key,value) -> {
-            Label label = new Label(key);
-            layout.getChildren().addAll(label, value);
-        });
-        layout.getChildren().addAll(saveButton,cancelButton);
+        for (String fieldName : this.fields) {
+            VBox field = new VBox(4);
+            this.textFields.put(fieldName, new TextField());
+            Label label = new Label(fieldName);
+            field.getChildren().addAll(label, this.textFields.get(fieldName));
+            layout.getChildren().addAll(field);
+        }
+        HBox buttons = new HBox(4);
+        buttons.getChildren().addAll(saveButton, cancelButton);
+
+        layout.getChildren().addAll(buttons);
         Scene scene = new Scene(layout);
+
         window.setScene(scene);
         window.showAndWait();
     }
