@@ -88,7 +88,7 @@
                                 <Insets bottom="16.0" />
                             </VBox.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" />
+                        <Button onAction="#deleteSelectedShapes" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Delete shape" />
                     </children>
                 </VBox>
             </children>

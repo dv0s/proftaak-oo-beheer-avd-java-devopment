@@ -21,7 +21,6 @@ public class DashboardController implements Initializable {
     }
 
     private void fillShapesDropdown() {
-        System.out.println(this.dashboard);
         this.shapesDropdown.getItems().setAll(this.dashboard.getShapeOptions());
         this.shapesDropdown.setPromptText("Choose a shape");
         this.shapesDropdown.getSelectionModel().selectedItemProperty().addListener(
@@ -29,7 +28,7 @@ public class DashboardController implements Initializable {
                 if (newValue != null) {
                     this.dashboard.createNewShape(newValue);
                     this.updateShapesList();
-                    this.shapesDropdown.getSelectionModel().clearSelection();
+//                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
             }
         );
@@ -59,7 +58,7 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void deleteSelectedShape(ActionEvent event) {
+    private void deleteSelectedShapes(ActionEvent event) {
         System.out.println("TODO: Delete selected shape");
     }
 

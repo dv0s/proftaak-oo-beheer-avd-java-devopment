@@ -4,15 +4,23 @@ import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.Calculable;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Cone extends Shape implements Calculable {
 
-    public Cone(Map<String, String> properties) {
+    public Cone(Integer id) {
         super();
         this.type = ShapeType.CONE;
         this.fields = new String[]{"radius", "height"};
-        this.setProperties(properties);
+        if (id != null) {
+            Map<String, String> tmpProperties = new HashMap<>();
+            tmpProperties.put("radius", "3");
+            tmpProperties.put("height", "5");
+            this.setProperties(tmpProperties);
+        } else {
+            this.showStage();
+        }
     }
 
     @Override
@@ -24,4 +32,6 @@ public class Cone extends Shape implements Calculable {
     public void calculateVolume() {
 
     }
+
+
 }

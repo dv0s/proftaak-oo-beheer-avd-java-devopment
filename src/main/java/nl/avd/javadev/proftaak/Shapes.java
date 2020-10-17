@@ -1,6 +1,10 @@
 package nl.avd.javadev.proftaak;
 
+import nl.avd.javadev.proftaak.shapes.*;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Shapes {
 
@@ -10,8 +14,35 @@ public class Shapes {
         return this.shapes;
     }
 
-    public void addShape(Shape shape) {
-        this.shapes.add(shape);
+    public void addShapes(List<HashMap> shapes) {
+        for (HashMap shape : shapes) {
+            this.addShape(shape);
+        }
+    }
+
+    public Shape addShape(HashMap<String, Object> shapeData) {
+        String shapeType = (String) shapeData.get("type");
+        Integer id = shapeData.containsKey("id") ? (Integer) shapeData.get("id") : null;
+        Shape shape = null;
+
+        if (shapeType.equals(ShapeType.CONE.toString())) {
+            shape = new Cone(id);
+        } else if (shapeType.equals(ShapeType.CUBE.toString())) {
+//            shape = new Cube(null);
+        } else if (shapeType.equals(ShapeType.CYLINDER.toString())) {
+//            shape = new Cylinder(null);
+        } else if (shapeType.equals(ShapeType.PRISM.toString())) {
+//            shape = new Prism(null);
+        } else if (shapeType.equals(ShapeType.PYRAMID.toString())) {
+//            shape = new Pyramid(null);
+        } else if (shapeType.equals(ShapeType.SPHERE.toString())) {
+//            shape = new Sphere(null);
+        }
+
+        if (shape != null && shape.getProperties().size() > 0) {
+            this.shapes.add(shape);
+        }
+        return shape;
     }
 
     public void saveShape(Shape shape) {
@@ -21,13 +52,6 @@ public class Shapes {
     public void removeShape(int shapeIndex) {
         if (shapeIndex < this.shapes.size()) { // item exisits
             this.shapes.remove(shapeIndex);
-        }
-    }
-
-    public void printShapes() {
-        System.out.println("Current shapes: ");
-        for (Shape shape : shapes) {
-            System.out.println(shape.toString());
         }
     }
 

@@ -9,7 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -19,18 +18,13 @@ public class Shape {
     private Stage window = new Stage();
     protected ShapeType type;
     protected String[] fields;
-    private Map<String, String> properties;
+    private Map<String, String> properties = new HashMap<>();
     private Map<String, TextField> textFields = new HashMap<>();
     private Button saveButton = new Button("Save");
     private Button cancelButton = new Button("Cancel");
 
     protected void setProperties(Map<String, String> properties) {
-        if (properties == null) {
-            this.properties = new HashMap<>();
-            this.showStage();
-        } else {
-            this.properties = properties;
-        }
+        this.properties = properties;
     }
 
     protected void showStage() {
@@ -49,6 +43,7 @@ public class Shape {
             field.getChildren().addAll(label, this.textFields.get(fieldName));
             layout.getChildren().addAll(field);
         }
+
         HBox buttons = new HBox(4);
         buttons.getChildren().addAll(saveButton, cancelButton);
 

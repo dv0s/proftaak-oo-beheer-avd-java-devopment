@@ -1,12 +1,16 @@
 package nl.avd.javadev.proftaak;
 
 import java.util.ArrayList;
-import nl.avd.javadev.proftaak.shapes.*;
+import java.util.HashMap;
 
 public class Dashboard {
 
     public Shapes shapes = new Shapes();
     private ShapeDatabase shapeDatabase = new ShapeDatabase();
+
+    public Dashboard() {
+        this.shapes.addShapes(this.shapeDatabase.getAll());
+    }
 
     public ArrayList<String> getShapeOptions() {
         ArrayList<String> options = new ArrayList<>();
@@ -16,27 +20,11 @@ public class Dashboard {
         return options;
     }
 
-    public Shape createNewShape(String newShape) {
-        Shape shape = null;
-        if (newShape.equals(ShapeType.CONE.toString())) {
-            shape = new Cone(null);
-        } else if (newShape.equals(ShapeType.CUBE.toString())) {
-            shape = new Cube(null);
-        } else if (newShape.equals(ShapeType.CYLINDER.toString())) {
-            shape = new Cylinder(null);
-        } else if (newShape.equals(ShapeType.PRISM.toString())) {
-            shape = new Prism(null);
-        } else if (newShape.equals(ShapeType.PYRAMID.toString())) {
-            shape = new Pyramid(null);
-        } else if (newShape.equals(ShapeType.SPHERE.toString())) {
-            shape = new Sphere(null);
-        }
-        if (shape != null && shape.getProperties().size() > 0) {
-            this.shapes.addShape(shape);
-            this.shapeDatabase.save(shape);
-            this.shapes.printShapes();
-        }
-        return shape;
+    public void createNewShape(String newShapeType) {
+        HashMap<String, Object> shapeData = new HashMap<>();
+        shapeData.put("type", newShapeType);
+        Shape shape = this.shapes.addShape(shapeData);
+        this.shapeDatabase.save(shape);
     }
 
 }
