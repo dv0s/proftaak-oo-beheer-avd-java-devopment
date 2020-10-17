@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="MariaDB - Google Cloud SQL" uuid="8f743888-6a6e-43ed-b8ad-fb77afbf86d7">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://34.91.169.193:3306/proftaak</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="proftaak@localhost" uuid="18b7255a-f732-48a9-80a1-4bac5a5808e9">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/proftaak</jdbc-url>
+    </data-source>
+  </component>
+</project>

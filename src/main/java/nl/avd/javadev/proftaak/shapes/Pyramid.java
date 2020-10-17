@@ -2,11 +2,11 @@ package nl.avd.javadev.proftaak.shapes;
 
 import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
-import nl.avd.javadev.proftaak.iShape;
+import nl.avd.javadev.proftaak.Calculable;
 
 import java.util.Map;
 
-public class Pyramid  extends Shape implements iShape {
+public class Pyramid  extends Shape implements Calculable {
 
     public Pyramid(Map<String, String> properties) {
         super();

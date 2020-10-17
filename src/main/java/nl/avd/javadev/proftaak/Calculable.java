@@ -1,6 +1,6 @@
 package nl.avd.javadev.proftaak;
 
-public interface iShape {
+public interface Calculable {
 
     public void getVolume();
     public void calculateVolume();

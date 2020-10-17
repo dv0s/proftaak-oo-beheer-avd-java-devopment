@@ -1,14 +1,12 @@
 package nl.avd.javadev.proftaak.shapes;
 
-import javafx.scene.control.TextField;
 import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
-import nl.avd.javadev.proftaak.iShape;
+import nl.avd.javadev.proftaak.Calculable;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class Cone extends Shape implements iShape {
+public class Cone extends Shape implements Calculable {
 
     public Cone(Map<String, String> properties) {
         super();

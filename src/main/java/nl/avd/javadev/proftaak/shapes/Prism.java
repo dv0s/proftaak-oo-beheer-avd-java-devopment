@@ -2,11 +2,11 @@ package nl.avd.javadev.proftaak.shapes;
 
 import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
-import nl.avd.javadev.proftaak.iShape;
+import nl.avd.javadev.proftaak.Calculable;
 
 import java.util.Map;
 
-public class Prism  extends Shape implements iShape {
+public class Prism  extends Shape implements Calculable {
 
     public Prism(Map<String, String> properties) {
         super();

@@ -2,11 +2,11 @@ package nl.avd.javadev.proftaak.shapes;
 
 import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
-import nl.avd.javadev.proftaak.iShape;
+import nl.avd.javadev.proftaak.Calculable;
 
 import java.util.Map;
 
-public class Cube extends Shape implements iShape {
+public class Cube extends Shape implements Calculable {
 
     public Cube(Map<String, String> properties) {
         super();
