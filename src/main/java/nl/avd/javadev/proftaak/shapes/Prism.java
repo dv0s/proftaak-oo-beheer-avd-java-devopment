@@ -16,8 +16,8 @@ public class Prism  extends Shape implements Calculable {
     }
 
     @Override
-    public void getVolume() {
-
+    public double getVolume() {
+        return 0.0;
     }
 
     @Override

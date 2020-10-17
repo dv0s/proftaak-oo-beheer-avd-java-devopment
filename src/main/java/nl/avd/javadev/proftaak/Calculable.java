@@ -2,7 +2,7 @@ package nl.avd.javadev.proftaak;
 
 public interface Calculable {
 
-    public void getVolume();
+    public double getVolume();
     public void calculateVolume();
 
 }
