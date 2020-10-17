@@ -22,7 +22,7 @@ public class Cube extends Shape implements Calculable {
 
     public double calculateVolume() {
         int edgeLength = 1;
-        double volume = (edgeLength*edgeLength*edgeLength);
+        double volume = (edgeLength * edgeLength * edgeLength);
 //        return volume;
         throw new UnsupportedOperationException();
     }

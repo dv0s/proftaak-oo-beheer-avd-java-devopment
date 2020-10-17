@@ -24,7 +24,7 @@ public class Cone extends Shape implements Calculable {
         int radius = 1;
         int height = 1;
         double pie = 3.14285714286;
-        double volume = pie*(radius*radius)*(height/3.0);
+        double volume = pie * (radius * radius) * (height / 3.0);
 //        return volume;
         throw new UnsupportedOperationException();
     }

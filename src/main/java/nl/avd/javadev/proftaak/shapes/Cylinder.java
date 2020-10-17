@@ -24,7 +24,7 @@ public class Cylinder extends Shape implements Calculable {
         int radius = 1;
         int height = 1;
         double pie = 3.14285714286;
-        double volume = pie*(radius*radius)*height;
+        double volume = pie * (radius * radius) * height;
 
         throw new UnsupportedOperationException();
     }

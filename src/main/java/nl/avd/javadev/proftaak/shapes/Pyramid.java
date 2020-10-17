@@ -6,7 +6,7 @@ import nl.avd.javadev.proftaak.Calculable;
 
 import java.util.Map;
 
-public class Pyramid  extends Shape implements Calculable {
+public class Pyramid extends Shape implements Calculable {
 
     public Pyramid(Map<String, String> properties) {
         super();
@@ -23,7 +23,7 @@ public class Pyramid  extends Shape implements Calculable {
     public double calculateVolume() {
         int base = 10;
         int height = 10;
-        double volume = (1.0 / 3.0)*(base*base)*height;
+        double volume = (1.0 / 3.0) * (base * base) * height;
         throw new UnsupportedOperationException();
     }
 }

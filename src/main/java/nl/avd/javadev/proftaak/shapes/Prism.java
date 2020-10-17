@@ -6,7 +6,7 @@ import nl.avd.javadev.proftaak.Calculable;
 
 import java.util.Map;
 
-public class Prism  extends Shape implements Calculable {
+public class Prism extends Shape implements Calculable {
 
     public Prism(Map<String, String> properties) {
         super();
