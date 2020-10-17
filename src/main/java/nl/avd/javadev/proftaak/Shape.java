@@ -20,7 +20,7 @@ public class Shape {
 
     private Stage window = new Stage();
     protected ShapeType type;
-    protected List<String> fields;
+    protected List<String> fields = new ArrayList<>();
     private Map<String, String> properties;
     private Map<String, TextField> textFields = new HashMap<>();
     private Button saveButton = new Button("Save");
@@ -35,10 +35,6 @@ public class Shape {
         }
     }
 
-    public List<String> getFields(){
-        return new ArrayList<>();
-    }
-
     protected void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
@@ -48,7 +44,7 @@ public class Shape {
         saveButton.setOnAction(e -> this.saveAction());
         cancelButton.setOnAction(e -> this.cancelAction());
 
-        for (String fieldName : this.getFields()) {
+        for (String fieldName : this.fields) {
             VBox field = new VBox(4);
             this.textFields.put(fieldName, new TextField());
             Label label = new Label(fieldName);
