@@ -17,7 +17,9 @@ public class Dashboard {
 
     public Shape createNewShape(String newShape) {
         Shape shape = null;
-        if (newShape.equals(ShapeType.CONE.toString())) {
+        if (newShape.equals(ShapeType.BLOCK.toString())) {
+            shape = new Block(null);
+        }else if (newShape.equals(ShapeType.CONE.toString())) {
             shape = new Cone(null);
         } else if (newShape.equals(ShapeType.CUBE.toString())) {
             shape = new Cube(null);

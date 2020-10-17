@@ -11,12 +11,16 @@ public class Block extends Shape implements Calculable {
     public Block(Map<String, String> properties) {
         super();
         this.type = ShapeType.SPHERE;
-        this.fields = new String[]{"radius"};
+        this.fields = new String[]{"length", "width", "height"};
         this.setProperties(properties);
     }
 
     @Override
     public double getVolume() {
+        if (this.getProperty("volume") == null){
+            this.calculateVolume();
+        }
+
         return this.getProperty("volume");
     }
 

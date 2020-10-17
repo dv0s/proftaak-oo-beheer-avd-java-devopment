@@ -3,6 +3,7 @@ package nl.avd.javadev.proftaak;
 import java.util.ArrayList;
 
 public enum ShapeType {
+    BLOCK,
     CONE,
     CUBE,
     CYLINDER,
@@ -12,6 +13,8 @@ public enum ShapeType {
 
     public String toString(){
         switch(this){
+            case BLOCK :
+                return "Block";
             case CONE :
                 return "Cone";
             case CUBE :
