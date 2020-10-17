@@ -31,7 +31,6 @@ public class Dashboard {
             shape = new Sphere(null);
         }
         if (shape != null && shape.getProperties().size() > 0) {
-            System.out.println(shape.getProperties());
             this.shapes.addShape(shape);
             this.shapes.printShapes();
         }

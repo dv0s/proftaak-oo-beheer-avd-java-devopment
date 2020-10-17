@@ -78,9 +78,21 @@ public class Shape {
     }
 
     public String toString() {
-        String propertiesSting = properties.keySet().stream()
-                .map(key -> key + ": " + properties.get(key))
-                .collect(Collectors.joining(", ", "", ""));
+        String propertiesSting = this.getPropertySting();
         return this.type + " - " + propertiesSting;
+    }
+
+    public String getType() {
+        return this.type.toString();
+    }
+
+    public Double getProperty(String key) {
+        return Double.parseDouble(this.properties.get(key));
+    }
+
+    public String getPropertySting() {
+        return this.properties.keySet().stream()
+                .map(key -> key + ": " + this.properties.get(key))
+                .collect(Collectors.joining(", ", "", ""));
     }
 }
