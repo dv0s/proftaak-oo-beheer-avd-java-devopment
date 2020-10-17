@@ -6,6 +6,7 @@ import nl.avd.javadev.proftaak.shapes.*;
 public class Dashboard {
 
     public Shapes shapes = new Shapes();
+    private ShapeDatabase shapeDatabase = new ShapeDatabase();
 
     public ArrayList<String> getShapeOptions() {
         ArrayList<String> options = new ArrayList<>();
@@ -32,6 +33,7 @@ public class Dashboard {
         }
         if (shape != null && shape.getProperties().size() > 0) {
             this.shapes.addShape(shape);
+            this.shapeDatabase.save(shape);
             this.shapes.printShapes();
         }
         return shape;

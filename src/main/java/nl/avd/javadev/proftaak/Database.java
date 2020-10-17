@@ -10,20 +10,13 @@ public abstract class Database<Entity> {
     }
 
     <Result> Result useStatement(String sql, UsesStatement<Result> operator) {
-        System.out.println("init");
         try (
-                Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/avd-i-proftaak", "root", "");
-                PreparedStatement statement = connection.prepareStatement(sql)
+            Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/avd-i-proftaak", "root", "");
+            PreparedStatement statement = connection.prepareStatement(sql)
         ) {
-            //noinspection UnnecessaryLocalVariable
-            Result result = operator.apply(statement);
-
-            System.out.println("connected");
-            return result;
+            return operator.apply(statement);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-    abstract Entity recordToEntity(ResultSet resultSet) throws SQLException;
 }
