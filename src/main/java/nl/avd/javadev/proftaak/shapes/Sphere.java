@@ -21,7 +21,10 @@ public class Sphere  extends Shape implements Calculable {
     }
 
     @Override
-    public void calculateVolume() {
-
+    public double calculateVolume() {
+        int radius = 1;
+        double pie=3.14285714286;
+        double volume=(4.0/3.0)*pie*(radius*radius*radius);
+        return volume;
     }
 }

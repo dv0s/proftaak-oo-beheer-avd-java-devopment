@@ -20,8 +20,10 @@ public class Cube extends Shape implements Calculable {
 
     }
 
-    @Override
-    public void calculateVolume() {
-
+    public double calculateVolume() {
+        int edgeLength = 1;
+        double volume = (edgeLength*edgeLength*edgeLength);
+//        return volume;
+        throw new UnsupportedOperationException();
     }
 }

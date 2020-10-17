@@ -20,8 +20,7 @@ public class Prism  extends Shape implements Calculable {
 
     }
 
-    @Override
-    public void calculateVolume() {
-
+    public double calculateVolume() {
+        throw new UnsupportedOperationException();
     }
 }

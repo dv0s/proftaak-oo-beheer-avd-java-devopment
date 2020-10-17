@@ -20,8 +20,10 @@ public class Pyramid  extends Shape implements Calculable {
 
     }
 
-    @Override
-    public void calculateVolume() {
-
+    public double calculateVolume() {
+        int base = 10;
+        int height = 10;
+        double volume = (1.0 / 3.0)*(base*base)*height;
+        throw new UnsupportedOperationException();
     }
 }
