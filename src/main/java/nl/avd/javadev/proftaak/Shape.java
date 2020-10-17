@@ -84,10 +84,15 @@ public class Shape {
 
     public String getType() {
         return this.type.toString();
+
     }
 
     public Double getProperty(String key) {
         return Double.parseDouble(this.properties.get(key));
+    }
+
+    public void setProperty(String key, String value) {
+        this.properties.put(key, value);
     }
 
     public String getPropertySting() {

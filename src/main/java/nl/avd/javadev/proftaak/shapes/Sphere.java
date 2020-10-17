@@ -17,14 +17,11 @@ public class Sphere extends Shape implements Calculable {
 
     @Override
     public double getVolume() {
-        return 0.0;
+        return this.getProperty("volume");
     }
 
-    @Override
-    public double calculateVolume() {
-        int radius = 1;
-        double pie = 3.14285714286;
-        double volume = (4.0 / 3.0) * pie * (radius * radius * radius);
-        return volume;
+    public void calculateVolume() {
+        double volume = (4.0 / 3.0) * Math.PI * (this.getProperty("radius") * this.getProperty("radius") * this.getProperty("radius"));
+        this.setProperty("volume", "" + volume);
     }
 }

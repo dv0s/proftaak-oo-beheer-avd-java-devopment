@@ -17,15 +17,14 @@ public class Cylinder extends Shape implements Calculable {
 
     @Override
     public double getVolume() {
-        return 0.0;
+        return this.getProperty("volume");
     }
 
-    public double calculateVolume() {
+    public void calculateVolume() {
         int radius = 1;
         int height = 1;
         double pie = 3.14285714286;
         double volume = pie * (radius * radius) * height;
-
-        throw new UnsupportedOperationException();
+        this.setProperty("volume", "" + volume);
     }
 }

@@ -17,13 +17,11 @@ public class Pyramid extends Shape implements Calculable {
 
     @Override
     public double getVolume() {
-        return 0.0;
+        return this.getProperty("volume");
     }
 
-    public double calculateVolume() {
-        int base = 10;
-        int height = 10;
-        double volume = (1.0 / 3.0) * (base * base) * height;
-        throw new UnsupportedOperationException();
+    public void calculateVolume() {
+        double volume = (1.0 / 3.0) * (this.getProperty("length") * this.getProperty("width")) * this.getProperty("height");
+        this.setProperty("volume", "" + volume);
     }
 }

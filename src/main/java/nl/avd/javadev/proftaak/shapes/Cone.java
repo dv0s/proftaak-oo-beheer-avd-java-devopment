@@ -17,15 +17,12 @@ public class Cone extends Shape implements Calculable {
 
     @Override
     public double getVolume() {
-        return (1.0/3) * Math.PI  * this.getProperty("radius") * this.getProperty("radius") * this.getProperty("height");
+        return this.getProperty("volume");
     }
 
-    public double calculateVolume() {
-        int radius = 1;
-        int height = 1;
-        double pie = 3.14285714286;
-        double volume = pie * (radius * radius) * (height / 3.0);
-//        return volume;
-        throw new UnsupportedOperationException();
+    @Override
+    public void calculateVolume() {
+        double volume = Math.PI * (this.getProperty("radius") * this.getProperty("radius")) * (this.getProperty("height") / 3.0);
+        this.setProperty("volume", "" + volume);
     }
 }

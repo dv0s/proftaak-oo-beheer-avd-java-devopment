@@ -20,7 +20,8 @@ public class Prism extends Shape implements Calculable {
         return 0.0;
     }
 
-    public double calculateVolume() {
-        throw new UnsupportedOperationException();
+    public void calculateVolume() {
+        double volume = 0.0;
+        this.setProperty("volume", "" + volume);
     }
 }

@@ -17,13 +17,12 @@ public class Cube extends Shape implements Calculable {
 
     @Override
     public double getVolume() {
-        return 0.0;
+        return this.getProperty("volume");
     }
 
-    public double calculateVolume() {
+    public void calculateVolume() {
         int edgeLength = 1;
         double volume = (edgeLength * edgeLength * edgeLength);
-//        return volume;
-        throw new UnsupportedOperationException();
+        this.setProperty("volume", "" + volume);
     }
 }

@@ -16,16 +16,12 @@ public class Block extends Shape implements Calculable {
     }
 
     @Override
-    public void getVolume() {
-
+    public double getVolume() {
+        return this.getProperty("volume");
     }
 
-    @Override
-    public double calculateVolume() {
-        int length = 10;
-        int width = 5;
-        int height = 3;
-        double volume = length * width * height;
-        throw new UnsupportedOperationException();
+    public void calculateVolume() {
+        double volume = this.getProperty("length") * this.getProperty("width") * this.getProperty("height");
+        this.setProperty("volume", "" + volume);
     }
 }
