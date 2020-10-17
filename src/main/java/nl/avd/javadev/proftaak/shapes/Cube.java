@@ -4,25 +4,35 @@ import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.Calculable;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cube extends Shape implements Calculable {
 
-    public Cube(Map<String, String> properties) {
+    private double edgeLength;
+
+    public Cube(double edgeLength) {
         super();
         this.type = ShapeType.CUBE;
-        this.fields = new String[]{"length", "width", "height"};
-        this.setProperties(properties);
+        this.edgeLength = edgeLength;
+    }
+
+    @Override
+    public List<String> getFields() {
+        List<String> fields = new ArrayList<>();
+        fields.add("length");
+        fields.add("width");
+        fields.add("height");
+        return fields;
     }
 
     @Override
     public double getVolume() {
-        return this.getProperty("volume");
+        // TODO: or get the volume from the db
+        return this.calculateVolume();
     }
 
-    public void calculateVolume() {
-        int edgeLength = 1;
-        double volume = (edgeLength * edgeLength * edgeLength);
-        this.setProperty("volume", "" + volume);
+    public double calculateVolume() {
+        return (edgeLength * edgeLength * edgeLength);
     }
 }

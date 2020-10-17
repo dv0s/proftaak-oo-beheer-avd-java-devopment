@@ -4,28 +4,43 @@ import nl.avd.javadev.proftaak.Calculable;
 import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Block extends Shape implements Calculable {
 
-    public Block(Map<String, String> properties) {
+    private double length;
+    private double width;
+    private double height;
+
+    public Block() {
+        this(0,0,0);
+    }
+
+    public Block(double length, double width, double height) {
         super();
         this.type = ShapeType.SPHERE;
-        this.fields = new String[]{"length", "width", "height"};
-        this.setProperties(properties);
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public List<String> getFields() {
+        List<String> fields = new ArrayList<>();
+        fields.add("length");
+        fields.add("width");
+        fields.add("height");
+        return fields;
     }
 
     @Override
     public double getVolume() {
-        if (this.getProperty("volume") == null){
-            this.calculateVolume();
-        }
-
-        return this.getProperty("volume");
+        // TODO: or get the volume from the db
+        return this.calculateVolume();
     }
 
-    public void calculateVolume() {
-        double volume = this.getProperty("length") * this.getProperty("width") * this.getProperty("height");
-        this.setProperty("volume", "" + volume);
+    public double calculateVolume() {
+        return length * width * height;
     }
 }

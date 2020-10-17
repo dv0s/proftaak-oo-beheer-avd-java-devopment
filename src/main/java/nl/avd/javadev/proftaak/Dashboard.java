@@ -18,21 +18,22 @@ public class Dashboard {
     public Shape createNewShape(String newShape) {
         Shape shape = null;
         if (newShape.equals(ShapeType.BLOCK.toString())) {
-            shape = new Block(null);
-        }else if (newShape.equals(ShapeType.CONE.toString())) {
-            shape = new Cone(null);
-        } else if (newShape.equals(ShapeType.CUBE.toString())) {
-            shape = new Cube(null);
-        } else if (newShape.equals(ShapeType.CYLINDER.toString())) {
-            shape = new Cylinder(null);
-        } else if (newShape.equals(ShapeType.PRISM.toString())) {
-            shape = new Prism(null);
-        } else if (newShape.equals(ShapeType.PYRAMID.toString())) {
-            shape = new Pyramid(null);
-        } else if (newShape.equals(ShapeType.SPHERE.toString())) {
-            shape = new Sphere(null);
+            shape = new Block();
+//        }else if (newShape.equals(ShapeType.CONE.toString())) {
+//            shape = new Cone(10, 10);
+//        } else if (newShape.equals(ShapeType.CUBE.toString())) {
+//            shape = new Cube(null);
+//        } else if (newShape.equals(ShapeType.CYLINDER.toString())) {
+//            shape = new Cylinder(null);
+//        } else if (newShape.equals(ShapeType.PRISM.toString())) {
+//            shape = new Prism(null);
+//        } else if (newShape.equals(ShapeType.PYRAMID.toString())) {
+//            shape = new Pyramid(null);
+//        } else if (newShape.equals(ShapeType.SPHERE.toString())) {
+//            shape = new Sphere(null);
         }
-        if (shape != null && shape.getProperties().size() > 0) {
+        System.out.println(shape);
+        if (shape != null && shape.getFields().size() > 0) {
             this.shapes.addShape(shape);
             this.shapes.printShapes();
         }

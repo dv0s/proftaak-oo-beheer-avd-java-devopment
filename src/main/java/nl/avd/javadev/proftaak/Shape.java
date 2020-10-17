@@ -10,7 +10,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -18,7 +20,7 @@ public class Shape {
 
     private Stage window = new Stage();
     protected ShapeType type;
-    protected String[] fields;
+    protected List<String> fields;
     private Map<String, String> properties;
     private Map<String, TextField> textFields = new HashMap<>();
     private Button saveButton = new Button("Save");
@@ -33,6 +35,10 @@ public class Shape {
         }
     }
 
+    public List<String> getFields(){
+        return new ArrayList<>();
+    }
+
     protected void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
@@ -42,7 +48,7 @@ public class Shape {
         saveButton.setOnAction(e -> this.saveAction());
         cancelButton.setOnAction(e -> this.cancelAction());
 
-        for (String fieldName : this.fields) {
+        for (String fieldName : this.getFields()) {
             VBox field = new VBox(4);
             this.textFields.put(fieldName, new TextField());
             Label label = new Label(fieldName);
@@ -78,8 +84,8 @@ public class Shape {
     }
 
     public String toString() {
-        String propertiesSting = this.getPropertySting();
-        return this.type + " - " + propertiesSting;
+        String fieldSting = this.getFieldSting();
+        return this.type + " - " + fieldSting;
     }
 
     public String getType() {
@@ -95,9 +101,15 @@ public class Shape {
         this.properties.put(key, value);
     }
 
-    public String getPropertySting() {
-        return this.properties.keySet().stream()
-                .map(key -> key + ": " + this.properties.get(key))
-                .collect(Collectors.joining(", ", "", ""));
+    public String getFieldSting(){
+        return this.fields.stream()
+                .collect(Collectors.joining(",", "", ""));
     }
+
+    // TODO: Remove this later?
+//    public String getFieldSting() {
+//        return this.fields.keySet().stream()
+//                .map(key -> key + ": " + this.properties.get(key))
+//                .collect(Collectors.joining(", ", "", ""));
+//    }
 }

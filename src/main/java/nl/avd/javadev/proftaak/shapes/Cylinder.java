@@ -4,27 +4,35 @@ import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.Calculable;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cylinder extends Shape implements Calculable {
 
-    public Cylinder(Map<String, String> properties) {
+    private double radius;
+    private double height;
+
+    public Cylinder(double radius, double height) {
         super();
         this.type = ShapeType.CYLINDER;
-        this.fields = new String[]{"radius", "height"};
-        this.setProperties(properties);
+        this.radius = radius;
+        this.height = height;
+    }
+
+    public List<String> getFields() {
+        List<String> fields = new ArrayList<>();
+        fields.add("radius");
+        fields.add("height");
+        return fields;
     }
 
     @Override
     public double getVolume() {
-        return this.getProperty("volume");
+        // TODO: Or get the value from the database
+        return this.calculateVolume();
     }
 
-    public void calculateVolume() {
-        int radius = 1;
-        int height = 1;
-        double pie = 3.14285714286;
-        double volume = pie * (radius * radius) * height;
-        this.setProperty("volume", "" + volume);
+    public double calculateVolume() {
+        return  Math.PI * (radius * radius) * height;
     }
 }

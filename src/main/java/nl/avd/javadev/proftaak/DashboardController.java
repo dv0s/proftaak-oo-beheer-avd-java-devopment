@@ -29,7 +29,7 @@ public class DashboardController implements Initializable {
                 if (newValue != null) {
                     this.dashboard.createNewShape(newValue);
                     this.updateShapesList();
-                    this.shapesDropdown.getSelectionModel().clearSelection();
+//                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
             }
         );
