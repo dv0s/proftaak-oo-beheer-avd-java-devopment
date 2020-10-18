@@ -25,6 +25,19 @@ public class ShapeDatabase extends Database<Shape> {
         });
     }
 
+    public HashMap<String, Object> getShapeData(Integer id) {
+        return useStatement("SELECT properties, volume FROM shapes WHERE id = ?", statement -> {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            HashMap<String, Object> shapeData = new HashMap<>();
+            while (resultSet.next()) {
+                shapeData.put("properties", resultSet.getString(1));
+                shapeData.put("volume", resultSet.getDouble(2));
+            }
+            return shapeData;
+        });
+    }
+
     public List<HashMap> getAll() {
         return useStatement("SELECT id, type FROM shapes", statement -> {
             ResultSet resultSet = statement.executeQuery();
@@ -32,8 +45,8 @@ public class ShapeDatabase extends Database<Shape> {
 
             while (resultSet.next()) {
                 HashMap<String, Object> shapeData = new HashMap<>();
-                shapeData.put("id", resultSet.getInt(ShapeTableColumns.ID.getIndex()));
-                shapeData.put("type", resultSet.getString(ShapeTableColumns.TYPE.getIndex()));
+                shapeData.put("id", resultSet.getInt(1));
+                shapeData.put("type", resultSet.getString(2));
                 shapesResultData.add(shapeData);
             }
 

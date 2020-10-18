@@ -8,11 +8,16 @@ import java.util.Map;
 
 public class Prism  extends Shape implements Calculable {
 
-    public Prism(Map<String, String> properties) {
+    public Prism(Integer id) {
         super();
         this.type = ShapeType.PRISM;
         this.fields = new String[]{"length", "height"};
-        this.setProperties(properties);
+        this.id = id;
+        if (id != null) {
+            this.setProperties();
+        } else {
+            this.showStage();
+        }
     }
 
     @Override

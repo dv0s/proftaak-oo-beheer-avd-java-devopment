@@ -29,15 +29,15 @@ public class Shapes {
         if (shapeType.equals(ShapeType.CONE.toString())) {
             shape = new Cone(id);
         } else if (shapeType.equals(ShapeType.CUBE.toString())) {
-//            shape = new Cube(null);
+            shape = new Cube(id);
         } else if (shapeType.equals(ShapeType.CYLINDER.toString())) {
-//            shape = new Cylinder(null);
+            shape = new Cylinder(id);
         } else if (shapeType.equals(ShapeType.PRISM.toString())) {
-//            shape = new Prism(null);
+            shape = new Prism(id);
         } else if (shapeType.equals(ShapeType.PYRAMID.toString())) {
-//            shape = new Pyramid(null);
+            shape = new Pyramid(id);
         } else if (shapeType.equals(ShapeType.SPHERE.toString())) {
-//            shape = new Sphere(null);
+            shape = new Sphere(id);
         }
 
         if (shape != null && shape.getProperties().size() > 0) {

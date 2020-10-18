@@ -8,11 +8,16 @@ import java.util.Map;
 
 public class Cube extends Shape implements Calculable {
 
-    public Cube(Map<String, String> properties) {
+    public Cube(Integer id) {
         super();
         this.type = ShapeType.CUBE;
         this.fields = new String[]{"length", "width", "height"};
-        this.setProperties(properties);
+        this.id = id;
+        if (id != null) {
+            this.setProperties();
+        } else {
+            this.showStage();
+        }
     }
 
     @Override

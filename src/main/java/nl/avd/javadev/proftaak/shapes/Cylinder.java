@@ -8,11 +8,16 @@ import java.util.Map;
 
 public class Cylinder extends Shape implements Calculable {
 
-    public Cylinder(Map<String, String> properties) {
+    public Cylinder(Integer id) {
         super();
         this.type = ShapeType.CYLINDER;
         this.fields = new String[]{"radius", "height"};
-        this.setProperties(properties);
+        this.id = id;
+        if (id != null) {
+            this.setProperties();
+        } else {
+            this.showStage();
+        }
     }
 
     @Override
