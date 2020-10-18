@@ -102,7 +102,7 @@ public class Shape {
 
     protected void getDataFromDatabase() {
         HashMap<String, Object> shapeData = this.shapeDatabase.getShapeData(this.id);
-        this.properties = this.propertyStringToMap((String) shapeData.get("properties"));
+        this.setProperties(this.propertyStringToMap((String) shapeData.get("properties")));
         this.volume = (Double) shapeData.get("volume");
     }
 
