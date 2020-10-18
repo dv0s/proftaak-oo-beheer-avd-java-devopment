@@ -27,7 +27,12 @@ public class Dashboard {
         HashMap<String, Object> shapeData = new HashMap<>();
         shapeData.put("type", newShapeType);
         Shape shape = this.shapes.addShape(shapeData);
-        shape.setId(this.shapeDatabase.save(shape));
+        shape.showStage();
+        if (shape.getProperties().size() > 0) {
+            shape.setId(this.shapeDatabase.save(shape));
+            return shape;
+        }
+        return null;
     }
 
     public void deleteShapes(List<Integer> selectedShapes) {
