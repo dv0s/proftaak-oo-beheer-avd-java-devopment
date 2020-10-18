@@ -15,7 +15,7 @@ class CubeTest {
         Map<String, String> properties = new HashMap<>();
         properties.put("length" , "10");
         properties.put("width" , "10");
-        properties.put("height" , "pannekoek");
+        properties.put("height" , "10");
 
         Cube cube = new Cube(null);
 
