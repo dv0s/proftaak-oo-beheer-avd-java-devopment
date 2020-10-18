@@ -35,10 +35,6 @@ public class Shape {
         }
     }
 
-    public List<String> getFields(){
-        return this.fields;
-    }
-
     protected void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
