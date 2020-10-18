@@ -13,6 +13,7 @@ public class Cone extends Shape implements Calculable {
         super();
         this.type = ShapeType.CONE;
         this.fields = new String[]{"radius", "height"};
+        this.id = id;
         if (id != null) {
             Map<String, String> tmpProperties = new HashMap<>();
             tmpProperties.put("radius", "3");

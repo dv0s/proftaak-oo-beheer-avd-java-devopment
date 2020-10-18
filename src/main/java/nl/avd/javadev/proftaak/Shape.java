@@ -17,6 +17,7 @@ public class Shape {
 
     private Stage window = new Stage();
     protected ShapeType type;
+    protected Integer id = null;
     protected String[] fields;
     private Map<String, String> properties = new HashMap<>();
     private Map<String, TextField> textFields = new HashMap<>();
@@ -79,6 +80,14 @@ public class Shape {
 
     public String getType() {
         return this.type.toString();
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Double getProperty(String key) {

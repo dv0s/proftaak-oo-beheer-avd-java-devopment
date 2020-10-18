@@ -1,15 +1,18 @@
 package nl.avd.javadev.proftaak;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Dashboard {
 
-    public Shapes shapes = new Shapes();
+    private Shapes shapes = new Shapes();
     private ShapeDatabase shapeDatabase = new ShapeDatabase();
 
     public Dashboard() {
         this.shapes.addShapes(this.shapeDatabase.getAll());
+    }
+
+    public ArrayList<Shape> getShapes() {
+        return this.shapes.getShapes();
     }
 
     public ArrayList<String> getShapeOptions() {
@@ -24,7 +27,15 @@ public class Dashboard {
         HashMap<String, Object> shapeData = new HashMap<>();
         shapeData.put("type", newShapeType);
         Shape shape = this.shapes.addShape(shapeData);
-        this.shapeDatabase.save(shape);
+        shape.setId(this.shapeDatabase.save(shape));
+    }
+
+    public void deleteShapes(List<Integer> selectedShapes) {
+        if (selectedShapes.size() != 0) {
+            for (int i = selectedShapes.size() - 1; i >= 0; i--) { // reverse loop to make sure shapes class removes shapes in correct order
+                this.shapes.removeShape(selectedShapes.get(i));
+            }
+        }
     }
 
 }

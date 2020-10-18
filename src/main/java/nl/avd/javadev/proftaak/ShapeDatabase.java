@@ -7,17 +7,23 @@ import java.util.List;
 
 public class ShapeDatabase extends Database<Shape> {
 
-    public void save(Shape shape) {
-        useStatement("INSERT INTO shapes (type, properties, volume) VALUES (?, ?, ?)", statement -> {
+    public Integer save(Shape shape) {
+        return useStatement("INSERT INTO shapes (type, properties, volume) VALUES (?, ?, ?)", statement -> {
             statement.setString(1, shape.getType());
             statement.setString(2, shape.getPropertySting());
             statement.setDouble(3, ((Calculable) shape).getVolume());
-
-            return statement.execute();
+            statement.execute();
+            ResultSet rs = statement.getGeneratedKeys();
+            return rs.next() ? rs.getInt(ShapeTableColumns.ID.getIndex()) : null;
         });
     }
 
-//    public void delete(Shape shape) {}
+    public Integer delete(Shape shape) {
+        return useStatement("DELETE FROM shapes WHERE id = ?", statement -> {
+            statement.setInt(1, shape.getId());
+            return statement.executeUpdate();
+        });
+    }
 
     public List<HashMap> getAll() {
         return useStatement("SELECT id, type FROM shapes", statement -> {

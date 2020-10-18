@@ -9,6 +9,7 @@ import java.util.List;
 public class Shapes {
 
     private ArrayList<Shape> shapes = new ArrayList<>();
+    private ShapeDatabase shapeDatabase = new ShapeDatabase();
 
     public ArrayList<Shape> getShapes() {
         return this.shapes;
@@ -45,14 +46,14 @@ public class Shapes {
         return shape;
     }
 
-    public void saveShape(Shape shape) {
-        System.out.println("Save shape to database");
+    private Shape getByIndex(Integer index) {
+        return this.shapes.get(index);
     }
 
     public void removeShape(int shapeIndex) {
-        if (shapeIndex < this.shapes.size()) { // item exisits
-            this.shapes.remove(shapeIndex);
-        }
+        Shape shape = this.getByIndex(shapeIndex);
+        this.shapeDatabase.delete(shape);
+        this.shapes.remove(shapeIndex);
     }
 
 }

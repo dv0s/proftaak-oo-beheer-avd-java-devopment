@@ -12,7 +12,7 @@ public abstract class Database<Entity> {
     <Result> Result useStatement(String sql, UsesStatement<Result> operator) {
         try (
             Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/avd-i-proftaak", "root", "");
-            PreparedStatement statement = connection.prepareStatement(sql)
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
         ) {
             return operator.apply(statement);
         } catch (SQLException e) {
