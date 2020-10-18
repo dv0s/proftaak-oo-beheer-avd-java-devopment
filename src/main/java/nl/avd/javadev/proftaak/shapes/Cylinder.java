@@ -14,7 +14,7 @@ public class Cylinder extends Shape implements Calculable {
         this.fields = new String[]{"radius", "height"};
         this.id = id;
         if (id != null) {
-            this.setProperties();
+            this.getDataFromDatabase();
         } else {
             this.showStage();
         }

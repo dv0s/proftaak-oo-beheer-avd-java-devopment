@@ -14,7 +14,7 @@ public class Prism  extends Shape implements Calculable {
         this.fields = new String[]{"length", "height"};
         this.id = id;
         if (id != null) {
-            this.setProperties();
+            this.getDataFromDatabase();
         } else {
             this.showStage();
         }

@@ -9,6 +9,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -92,9 +94,10 @@ public class Shape {
         return Double.parseDouble(this.properties.get(key));
     }
 
-    protected void setProperties() {
-        String propertyString = (String) this.shapeDatabase.getShapeData(this.id).get("properties");
-        this.properties = this.propertyStringToMap(propertyString);
+    protected void getDataFromDatabase() {
+        HashMap<String, Object> shapeData = this.shapeDatabase.getShapeData(this.id);
+        this.properties = this.propertyStringToMap((String) shapeData.get("properties"));
+        this.volume = (Double) shapeData.get("volume");
     }
 
     private Map<String, String> propertyStringToMap(String propertyString) {
