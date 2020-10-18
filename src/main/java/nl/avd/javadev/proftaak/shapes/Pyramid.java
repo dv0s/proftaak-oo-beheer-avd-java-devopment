@@ -8,11 +8,16 @@ import java.util.Map;
 
 public class Pyramid  extends Shape implements Calculable {
 
-    public Pyramid(Map<String, String> properties) {
+    public Pyramid(Integer id) {
         super();
         this.type = ShapeType.PYRAMID;
         this.fields = new String[]{"length", "width", "height"};
-        this.setProperties(properties);
+        this.id = id;
+        if (id != null) {
+            this.getDataFromDatabase();
+        } else {
+            this.showStage();
+        }
     }
 
     @Override

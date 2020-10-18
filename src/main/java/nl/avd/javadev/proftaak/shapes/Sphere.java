@@ -8,11 +8,16 @@ import java.util.Map;
 
 public class Sphere  extends Shape implements Calculable {
 
-    public Sphere(Map<String, String> properties) {
+    public Sphere(Integer id) {
         super();
         this.type = ShapeType.SPHERE;
         this.fields = new String[]{"radius"};
-        this.setProperties(properties);
+        this.id = id;
+        if (id != null) {
+            this.getDataFromDatabase();
+        } else {
+            this.showStage();
+        }
     }
 
     @Override

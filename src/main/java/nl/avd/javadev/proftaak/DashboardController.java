@@ -1,12 +1,15 @@
 package nl.avd.javadev.proftaak;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 
 public class DashboardController implements Initializable {
 
@@ -17,11 +20,10 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.fillShapesDropdown();
-        this.updateShapesList();
+        this.initShapesList();
     }
 
     private void fillShapesDropdown() {
-        System.out.println(this.dashboard);
         this.shapesDropdown.getItems().setAll(this.dashboard.getShapeOptions());
         this.shapesDropdown.setPromptText("Choose a shape");
         this.shapesDropdown.getSelectionModel().selectedItemProperty().addListener(
@@ -29,17 +31,20 @@ public class DashboardController implements Initializable {
                 if (newValue != null) {
                     this.dashboard.createNewShape(newValue);
                     this.updateShapesList();
-                    this.shapesDropdown.getSelectionModel().clearSelection();
+//                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
             }
         );
     }
 
+    private void initShapesList() {
+        this.shapesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        this.updateShapesList();
+    }
+
     private void updateShapesList() {
         this.shapesListView.getItems().clear();
-        this.dashboard.shapes.getShapes().forEach((shape) -> {
-            this.shapesListView.getItems().add(shape.toString());
-        });
+        this.dashboard.getShapes().forEach((shape) -> this.shapesListView.getItems().add(shape.toString()));
     }
 
 
@@ -59,8 +64,10 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void deleteSelectedShape(ActionEvent event) {
-        System.out.println("TODO: Delete selected shape");
+    private void deleteSelectedShapes(ActionEvent event) {
+        List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
+        this.dashboard.deleteShapes(selectedItems);
+        this.updateShapesList();
     }
 
 }

@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -17,21 +18,15 @@ import java.util.stream.Collectors;
 public class Shape {
 
     private Stage window = new Stage();
+    private ShapeDatabase shapeDatabase = new ShapeDatabase();
     protected ShapeType type;
+    protected Integer id = null;
+    protected Double volume = null;
     protected String[] fields;
-    private Map<String, String> properties;
+    private Map<String, String> properties = new HashMap<>();
     private Map<String, TextField> textFields = new HashMap<>();
     private Button saveButton = new Button("Save");
     private Button cancelButton = new Button("Cancel");
-
-    protected void setProperties(Map<String, String> properties) {
-        if (properties == null) {
-            this.properties = new HashMap<>();
-            this.showStage();
-        } else {
-            this.properties = properties;
-        }
-    }
 
     protected void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
@@ -49,6 +44,7 @@ public class Shape {
             field.getChildren().addAll(label, this.textFields.get(fieldName));
             layout.getChildren().addAll(field);
         }
+
         HBox buttons = new HBox(4);
         buttons.getChildren().addAll(saveButton, cancelButton);
 
@@ -86,8 +82,33 @@ public class Shape {
         return this.type.toString();
     }
 
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Double getProperty(String key) {
         return Double.parseDouble(this.properties.get(key));
+    }
+
+    protected void getDataFromDatabase() {
+        HashMap<String, Object> shapeData = this.shapeDatabase.getShapeData(this.id);
+        this.properties = this.propertyStringToMap((String) shapeData.get("properties"));
+        this.volume = (Double) shapeData.get("volume");
+    }
+
+    private Map<String, String> propertyStringToMap(String propertyString) {
+        Map<String, String> properties = new HashMap<>();
+        String[] propertyPairs = propertyString.split(", ");
+        for (int i = 0; i < propertyPairs.length; i++) {
+            String property = propertyPairs[i];
+            String[] keyValue = property.split(": ");
+            properties.put(keyValue[0], keyValue[1]);
+        }
+        return properties;
     }
 
     public String getPropertySting() {
