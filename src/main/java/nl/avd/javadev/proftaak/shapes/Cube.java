@@ -19,7 +19,7 @@ public class Cube extends Shape implements Calculable {
     }
 
     @Override
-    public double getVolume() {
+    public double getVolume() throws NumberFormatException {
         return this.getProperty("length") * this.getProperty("width") * this.getProperty("height");
     }
 

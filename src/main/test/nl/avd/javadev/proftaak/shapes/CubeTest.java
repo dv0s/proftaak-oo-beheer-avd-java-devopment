@@ -28,6 +28,25 @@ class CubeTest {
         assertEquals(1000, actual);
     }
 
+//    @Test
+//    void getVolume_throwsExceptionOn() {
+//        // Arrange
+//        Map<String, String> properties = new HashMap<>();
+//        properties.put("length" , "10");
+//        properties.put("width" , "andere tekst");
+//        properties.put("height" , "pannekoek");
+//
+//        Cube cube = new Cube(null);
+//
+//        cube.setProperties(properties);
+//
+//        // Act
+//        double actual = cube.getVolume();
+//
+//        // Assert
+//        assertThrows(NumberFormatException.class, cube.getVolume());
+//    }
+
     @Test
     void calculateVolume() {
     }
