@@ -21,6 +21,8 @@ public class Shapes {
         }
     }
 
+
+
     public Shape addShape(HashMap<String, Object> shapeData) {
         String shapeType = (String) shapeData.get("type");
         Integer id = shapeData.containsKey("id") ? (Integer) shapeData.get("id") : null;
@@ -39,8 +41,7 @@ public class Shapes {
         } else if (shapeType.equals(ShapeType.SPHERE.toString())) {
             shape = new Sphere(id);
         }
-
-        if (shape != null && shape.getProperties().size() > 0) {
+        if (shape != null) {
             this.shapes.add(shape);
         }
         return shape;

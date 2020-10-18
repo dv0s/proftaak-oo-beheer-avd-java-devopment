@@ -23,11 +23,13 @@ public class Dashboard {
         return options;
     }
 
-    public void createNewShape(String newShapeType) {
+    public Shape createNewShape(String newShapeType) {
         HashMap<String, Object> shapeData = new HashMap<>();
         shapeData.put("type", newShapeType);
         Shape shape = this.shapes.addShape(shapeData);
+        shape.showStage();
         shape.setId(this.shapeDatabase.save(shape));
+        return shape;
     }
 
     public void deleteShapes(List<Integer> selectedShapes) {
