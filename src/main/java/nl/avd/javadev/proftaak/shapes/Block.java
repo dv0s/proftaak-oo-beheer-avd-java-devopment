@@ -23,15 +23,15 @@ public class Block extends Shape implements Calculable {
         this.length = length;
         this.width = width;
         this.height = height;
+
+        this.fields.add("length");
+        this.fields.add("width");
+        this.fields.add("height");
+
+        this.showStage();
     }
 
-    @Override
-    public List<String> getFields() {
-        List<String> fields = new ArrayList<>();
-        fields.add("length");
-        fields.add("width");
-        fields.add("height");
-        return fields;
+    public void setFields(){
     }
 
     @Override
@@ -42,5 +42,9 @@ public class Block extends Shape implements Calculable {
 
     public double calculateVolume() {
         return length * width * height;
+    }
+
+    public void showStage(){
+
     }
 }

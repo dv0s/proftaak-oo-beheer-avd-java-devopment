@@ -12,6 +12,10 @@ public class Cone extends Shape implements Calculable {
     private double radius;
     private double height;
 
+    public Cone() {
+        this(0,0);
+    }
+
     public Cone(double radius, double height) {
         super();
         this.type = ShapeType.CONE;

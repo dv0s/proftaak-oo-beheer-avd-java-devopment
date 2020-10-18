@@ -13,6 +13,10 @@ public class Prism extends Shape implements Calculable {
     private double triangleHeight;
     private double prismHeight;
 
+    public Prism() {
+        this(0,0,0);
+    }
+
     public Prism(double triangleBase, double triangleHeight, double prismHeight) {
         super();
         this.type = ShapeType.PRISM;

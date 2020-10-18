@@ -11,6 +11,10 @@ public class Cube extends Shape implements Calculable {
 
     private double edgeLength;
 
+    public Cube() {
+        this(0);
+    }
+
     public Cube(double edgeLength) {
         super();
         this.type = ShapeType.CUBE;

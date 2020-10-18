@@ -12,6 +12,10 @@ public class Cylinder extends Shape implements Calculable {
     private double radius;
     private double height;
 
+    public Cylinder() {
+        this(0,0);
+    }
+
     public Cylinder(double radius, double height) {
         super();
         this.type = ShapeType.CYLINDER;

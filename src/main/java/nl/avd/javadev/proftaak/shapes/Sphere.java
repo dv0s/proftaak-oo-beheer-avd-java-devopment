@@ -10,10 +10,16 @@ import java.util.Map;
 
 public class Sphere extends Shape implements Calculable {
 
-    public Sphere(Map<String, String> properties) {
+    private double radius;
+
+    public Sphere() {
+        this(0);
+    }
+
+    public Sphere(double radius) {
         super();
         this.type = ShapeType.SPHERE;
-        this.setProperties(properties);
+        this.radius = radius;
     }
 
     @Override

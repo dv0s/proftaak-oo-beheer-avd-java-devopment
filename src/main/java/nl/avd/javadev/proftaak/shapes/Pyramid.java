@@ -10,10 +10,21 @@ import java.util.Map;
 
 public class Pyramid extends Shape implements Calculable {
 
-    public Pyramid(Map<String, String> properties) {
+    private double length;
+    private double width;
+    double height;
+
+
+    public Pyramid() {
+        this(0,0,0);
+    }
+
+    public Pyramid(double length, double width, double height) {
         super();
         this.type = ShapeType.PYRAMID;
-        this.setProperties(properties);
+        this.length = length;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
