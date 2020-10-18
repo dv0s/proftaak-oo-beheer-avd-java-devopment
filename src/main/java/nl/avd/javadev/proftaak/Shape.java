@@ -17,16 +17,28 @@ import java.util.stream.Collectors;
 
 public class Shape {
 
-    private Stage window = new Stage();
-    private ShapeDatabase shapeDatabase = new ShapeDatabase();
+    private Stage window;
+    private ShapeDatabase shapeDatabase;
     protected ShapeType type;
-    protected Integer id = null;
-    protected Double volume = null;
+    protected Integer id;
+    protected Double volume;
     protected String[] fields;
-    private Map<String, String> properties = new HashMap<>();
-    private Map<String, TextField> textFields = new HashMap<>();
-    private Button saveButton = new Button("Save");
-    private Button cancelButton = new Button("Cancel");
+    private Map<String, String> properties;
+    private Map<String, TextField> textFields;
+    private Button saveButton;
+    private Button cancelButton;
+
+    public Shape(){
+        this.window = new Stage();
+        this.shapeDatabase = new ShapeDatabase();
+        this.id = null;
+        this.volume = null;
+        this.properties = new HashMap<>();
+        this.textFields = new HashMap<>();
+        this.saveButton = new Button("Save");
+        this.cancelButton = new Button("Cancel");
+
+    }
 
     protected void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
