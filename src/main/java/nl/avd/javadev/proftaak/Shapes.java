@@ -1,7 +1,6 @@
 package nl.avd.javadev.proftaak;
 
 import nl.avd.javadev.proftaak.shapes.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

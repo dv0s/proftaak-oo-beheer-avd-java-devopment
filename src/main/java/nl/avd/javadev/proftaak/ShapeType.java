@@ -1,7 +1,5 @@
 package nl.avd.javadev.proftaak;
 
-import java.util.ArrayList;
-
 public enum ShapeType {
     CONE,
     CUBE,

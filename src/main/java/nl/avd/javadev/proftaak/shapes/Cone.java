@@ -4,9 +4,6 @@ import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.Calculable;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Cone extends Shape implements Calculable {
 
     public Cone(Integer id) {

@@ -9,8 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
