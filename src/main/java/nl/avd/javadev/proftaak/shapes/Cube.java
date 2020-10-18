@@ -15,18 +15,17 @@ public class Cube extends Shape implements Calculable {
         this.id = id;
         if (id != null) {
             this.getDataFromDatabase();
-        } else {
-            this.showStage();
         }
     }
 
     @Override
     public double getVolume() {
-        return 0.0;
+        return this.getProperty("length") * this.getProperty("width") * this.getProperty("height");
     }
 
     @Override
     public void calculateVolume() {
 
     }
+
 }

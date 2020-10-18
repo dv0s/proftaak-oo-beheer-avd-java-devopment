@@ -29,23 +29,24 @@ public class Shape {
     private Button cancelButton;
 
     public Shape(){
-        this.window = new Stage();
         this.shapeDatabase = new ShapeDatabase();
         this.id = null;
         this.volume = null;
         this.properties = new HashMap<>();
         this.textFields = new HashMap<>();
-        this.saveButton = new Button("Save");
-        this.cancelButton = new Button("Cancel");
-
     }
 
     protected void showStage() {
+        this.window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
         window.setMinWidth(250);
         VBox layout = new VBox(16);
         layout.setPadding(new Insets(20));
+
+        this.saveButton = new Button("Save");
+        this.cancelButton = new Button("Cancel");
+
         saveButton.setOnAction(e -> this.saveAction());
         cancelButton.setOnAction(e -> this.cancelAction());
 
@@ -104,6 +105,10 @@ public class Shape {
 
     public Double getProperty(String key) {
         return Double.parseDouble(this.properties.get(key));
+    }
+
+    public void setProperties(Map<String, String> properties) {
+        this.properties = properties;
     }
 
     protected void getDataFromDatabase() {
