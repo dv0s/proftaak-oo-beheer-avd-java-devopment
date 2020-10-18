@@ -46,12 +46,12 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void saveToFile(ActionEvent event) {
-        System.out.println("TODO: Save input to file");
+    private void exportAction() {
+        this.dashboard.exportShapes();
     }
 
     @FXML
-    private void loadFromFile(ActionEvent event) {
+    private void importAction() {
         System.out.println("TODO: Load data from text file");
     }
 

@@ -64,12 +64,12 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="191.0" GridPane.rowIndex="1">
                     <children>
-                        <Button onAction="#saveToFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Export">
+                        <Button onAction="#exportAction" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Export">
                             <VBox.margin>
                                 <Insets bottom="16.0" />
                             </VBox.margin>
                         </Button>
-                        <Button onAction="#loadFromFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Load" />
+                        <Button onAction="#importAction" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Import" />
                     </children>
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">

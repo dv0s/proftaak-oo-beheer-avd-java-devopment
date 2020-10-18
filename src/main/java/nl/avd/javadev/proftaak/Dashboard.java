@@ -43,4 +43,9 @@ public class Dashboard {
         }
     }
 
+    public void exportShapes() {
+        FileService fileService = new FileService();
+        fileService.writeToFile(this.shapes.getShapes());
+    }
+
 }

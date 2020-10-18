@@ -21,8 +21,6 @@ public class Shapes {
         }
     }
 
-
-
     public Shape addShape(HashMap<String, Object> shapeData) {
         String shapeType = (String) shapeData.get("type");
         Integer id = shapeData.containsKey("id") ? (Integer) shapeData.get("id") : null;
@@ -56,5 +54,4 @@ public class Shapes {
         this.shapeDatabase.delete(shape);
         this.shapes.remove(shapeIndex);
     }
-
 }
