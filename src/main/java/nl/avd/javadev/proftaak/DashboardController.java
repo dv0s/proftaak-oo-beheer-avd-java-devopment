@@ -51,7 +51,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void importAction() {
-        System.out.println("TODO: Load data from text file");
+        this.dashboard.importShapes();
     }
 
     @FXML

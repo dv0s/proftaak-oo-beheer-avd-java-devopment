@@ -48,4 +48,10 @@ public class Dashboard {
         fileService.writeToFile(this.shapes.getShapes());
     }
 
+    public void importShapes() {
+        FileService fileService = new FileService();
+        List<Map> shapes = fileService.getDataFromFile();
+        System.out.println(shapes);
+    }
+
 }
