@@ -48,10 +48,21 @@ public class Dashboard {
         fileService.writeToFile(this.shapes.getShapes());
     }
 
-    public void importShapes() {
+    public List<Shape> importShapes() {
         FileService fileService = new FileService();
-        List<Map> shapes = fileService.getDataFromFile();
-        System.out.println(shapes);
+        List<Map> shapesData = fileService.getDataFromFile();
+        List<Shape> appendedShapes = new ArrayList<>();
+
+        for (Map shapeData : shapesData) {
+            Shape newShape = this.shapes.addShape(new HashMap<>() {{
+                put("type", shapeData.get("type"));
+            }});
+            newShape.setProperties((Map) shapeData.get("properties"));
+            newShape.setId(this.shapeDatabase.save(newShape));
+            appendedShapes.add(newShape);
+        }
+
+        return appendedShapes;
     }
 
 }

@@ -44,8 +44,6 @@ public class FileService {
     }
 
     private Map<String, Object> stringToShape(String shapeString) {
-        Map<String, Object> shapeData = new HashMap<>();
-        shapeData.put("type", shapeString.split(" - ")[0]);
         String propertiesString = shapeString.split(" - ")[1];
         String[] propertyPairs = propertiesString.split(", ");
         Map<String, String> properties = new HashMap<>();
@@ -54,7 +52,9 @@ public class FileService {
             String[] keyValue = property.split(": ");
             properties.put(keyValue[0], keyValue[1]);
         }
-        shapeData.put("properties", properties);
-        return shapeData;
+        return new HashMap<>() {{
+            put("type", shapeString.split(" - ")[0]);
+            put("properties", properties);
+        }};
     }
 }

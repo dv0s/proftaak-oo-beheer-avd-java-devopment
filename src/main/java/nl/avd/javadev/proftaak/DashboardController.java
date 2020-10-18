@@ -51,7 +51,10 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void importAction() {
-        this.dashboard.importShapes();
+        List<Shape> shapes = this.dashboard.importShapes();
+        for (Shape shape : shapes) {
+            this.shapesListView.getItems().add(shape.toString());
+        }
     }
 
     @FXML
