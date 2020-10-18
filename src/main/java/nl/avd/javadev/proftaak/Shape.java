@@ -28,7 +28,7 @@ public class Shape {
     private Button saveButton = new Button("Save");
     private Button cancelButton = new Button("Cancel");
 
-    protected void showStage() {
+    public void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
         window.setMinWidth(250);

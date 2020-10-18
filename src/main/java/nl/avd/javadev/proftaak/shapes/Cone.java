@@ -16,8 +16,6 @@ public class Cone extends Shape implements Calculable {
         this.id = id;
         if (id != null) {
             this.getDataFromDatabase();
-        } else {
-            this.showStage();
         }
     }
 

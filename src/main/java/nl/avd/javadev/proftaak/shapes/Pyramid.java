@@ -15,8 +15,6 @@ public class Pyramid  extends Shape implements Calculable {
         this.id = id;
         if (id != null) {
             this.getDataFromDatabase();
-        } else {
-            this.showStage();
         }
     }
 

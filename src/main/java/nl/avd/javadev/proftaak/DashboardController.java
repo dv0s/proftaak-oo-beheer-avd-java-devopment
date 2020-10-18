@@ -1,6 +1,7 @@
 package nl.avd.javadev.proftaak;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -40,10 +41,6 @@ public class DashboardController implements Initializable {
 
     private void initShapesList() {
         this.shapesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        this.updateShapesList();
-    }
-
-    private void updateShapesList() {
         this.shapesListView.getItems().clear();
         this.dashboard.getShapes().forEach((shape) -> this.shapesListView.getItems().add(shape.toString()));
     }
@@ -67,7 +64,10 @@ public class DashboardController implements Initializable {
     private void deleteSelectedShapes(ActionEvent event) {
         List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         this.dashboard.deleteShapes(selectedItems);
-        this.updateShapesList();
+        for (int i = selectedItems.size() - 1; i >= 0; i--) {
+            this.shapesListView.getItems().remove((int) selectedItems.get(i));
+        }
+        this.shapesListView.getSelectionModel().clearSelection();
     }
 
 }
