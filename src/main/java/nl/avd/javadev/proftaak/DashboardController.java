@@ -30,7 +30,9 @@ public class DashboardController implements Initializable {
             (selected, oldValue, newValue) -> {
                 if (newValue != null) {
                     Shape shape = this.dashboard.createNewShape(newValue);
-                    this.shapesListView.getItems().add(shape.toString());
+                    if (shape != null) {
+                        this.shapesListView.getItems().add(shape.toString());
+                    }
 //                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
             }

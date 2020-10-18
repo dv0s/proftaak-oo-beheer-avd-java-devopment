@@ -28,8 +28,11 @@ public class Dashboard {
         shapeData.put("type", newShapeType);
         Shape shape = this.shapes.addShape(shapeData);
         shape.showStage();
-        shape.setId(this.shapeDatabase.save(shape));
-        return shape;
+        if (shape.getProperties().size() > 0) {
+            shape.setId(this.shapeDatabase.save(shape));
+            return shape;
+        }
+        return null;
     }
 
     public void deleteShapes(List<Integer> selectedShapes) {
