@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class Shape {
 
-    private Stage window = new Stage();
+    private Stage window;
     private ShapeDatabase shapeDatabase = new ShapeDatabase();
     protected ShapeType type;
     protected Integer id = null;
@@ -23,15 +23,21 @@ public class Shape {
     protected String[] fields;
     private Map<String, String> properties = new HashMap<>();
     private Map<String, TextField> textFields = new HashMap<>();
-    private Button saveButton = new Button("Save");
-    private Button cancelButton = new Button("Cancel");
+    private Button saveButton;
+    private Button cancelButton;
 
     public void showStage() {
+        this.window = new Stage();
+
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
         window.setMinWidth(250);
         VBox layout = new VBox(16);
         layout.setPadding(new Insets(20));
+
+        this.saveButton = new Button("Save");
+        this.cancelButton = new Button("Cancel");
+
         saveButton.setOnAction(e -> this.saveAction());
         cancelButton.setOnAction(e -> this.cancelAction());
 
@@ -94,7 +100,7 @@ public class Shape {
 
     protected void getDataFromDatabase() {
         HashMap<String, Object> shapeData = this.shapeDatabase.getShapeData(this.id);
-        this.properties = this.propertyStringToMap((String) shapeData.get("properties"));
+        this.setProperties(this.propertyStringToMap((String) shapeData.get("properties")));
         this.volume = (Double) shapeData.get("volume");
     }
 
@@ -113,5 +119,9 @@ public class Shape {
         return this.properties.keySet().stream()
                 .map(key -> key + ": " + this.properties.get(key))
                 .collect(Collectors.joining(", ", "", ""));
+    }
+
+    public void setProperties(Map<String,String> properties){
+        this.properties = properties;
     }
 }
