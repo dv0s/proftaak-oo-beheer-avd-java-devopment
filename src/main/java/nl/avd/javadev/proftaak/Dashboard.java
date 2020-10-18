@@ -32,7 +32,7 @@ public class Dashboard {
         } else if (newShape.equals(ShapeType.SPHERE.toString())) {
             shape = new Sphere();
         }
-        if (shape != null && shape.getFields().size() > 0) {
+        if (shape != null && shape.fields.size() > 0) {
             this.shapes.addShape(shape);
             this.shapes.printShapes();
         }

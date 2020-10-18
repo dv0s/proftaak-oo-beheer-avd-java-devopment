@@ -27,7 +27,6 @@ public class Pyramid extends Shape implements Calculable {
         this.height = height;
     }
 
-    @Override
     public List<String> getFields() {
         List<String> fields = new ArrayList<>();
         fields.add("length");

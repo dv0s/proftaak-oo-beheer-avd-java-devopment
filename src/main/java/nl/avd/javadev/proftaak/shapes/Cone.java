@@ -21,9 +21,12 @@ public class Cone extends Shape implements Calculable {
         this.type = ShapeType.CONE;
         this.radius = radius;
         this.height = height;
+
+        this.fields.add("radius");
+        this.fields.add("height");
+        this.showStage();
     }
 
-    @Override
     public List<String> getFields() {
         List<String> fields = new ArrayList<>();
         fields.add("radius");

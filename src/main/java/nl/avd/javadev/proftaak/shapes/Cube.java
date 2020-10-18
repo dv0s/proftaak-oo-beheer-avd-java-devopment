@@ -21,7 +21,6 @@ public class Cube extends Shape implements Calculable {
         this.edgeLength = edgeLength;
     }
 
-    @Override
     public List<String> getFields() {
         List<String> fields = new ArrayList<>();
         fields.add("length");

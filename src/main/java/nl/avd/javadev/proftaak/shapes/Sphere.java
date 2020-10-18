@@ -22,7 +22,6 @@ public class Sphere extends Shape implements Calculable {
         this.radius = radius;
     }
 
-    @Override
     public List<String> getFields() {
         List<String> fields = new ArrayList<>();
         fields.add("radius");
