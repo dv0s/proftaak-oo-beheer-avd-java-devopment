@@ -17,36 +17,23 @@ import java.util.stream.Collectors;
 
 public class Shape {
 
-    private Stage window;
-    private ShapeDatabase shapeDatabase;
+    private Stage window = new Stage();
+    private ShapeDatabase shapeDatabase = new ShapeDatabase();
     protected ShapeType type;
-    protected Integer id;
-    protected Double volume;
+    protected Integer id = null;
+    protected Double volume = null;
     protected String[] fields;
-    private Map<String, String> properties;
-    private Map<String, TextField> textFields;
-    private Button saveButton;
-    private Button cancelButton;
+    private Map<String, String> properties = new HashMap<>();
+    private Map<String, TextField> textFields = new HashMap<>();
+    private Button saveButton = new Button("Save");
+    private Button cancelButton = new Button("Cancel");
 
-    public Shape(){
-        this.shapeDatabase = new ShapeDatabase();
-        this.id = null;
-        this.volume = null;
-        this.properties = new HashMap<>();
-        this.textFields = new HashMap<>();
-    }
-
-    protected void showStage() {
-        this.window = new Stage();
+    public void showStage() {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(type.toString());
         window.setMinWidth(250);
         VBox layout = new VBox(16);
         layout.setPadding(new Insets(20));
-
-        this.saveButton = new Button("Save");
-        this.cancelButton = new Button("Cancel");
-
         saveButton.setOnAction(e -> this.saveAction());
         cancelButton.setOnAction(e -> this.cancelAction());
 
@@ -105,10 +92,6 @@ public class Shape {
 
     public Double getProperty(String key) {
         return Double.parseDouble(this.properties.get(key));
-    }
-
-    public void setProperties(Map<String, String> properties) {
-        this.properties = properties;
     }
 
     protected void getDataFromDatabase() {

@@ -14,7 +14,7 @@ public class ShapeDatabase extends Database<Shape> {
             statement.setDouble(3, ((Calculable) shape).getVolume());
             statement.execute();
             ResultSet rs = statement.getGeneratedKeys();
-            return rs.next() ? rs.getInt(ShapeTableColumns.ID.getIndex()) : null;
+            return rs.next() ? rs.getInt(1) : null;
         });
     }
 

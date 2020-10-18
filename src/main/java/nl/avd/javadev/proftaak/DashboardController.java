@@ -29,8 +29,10 @@ public class DashboardController implements Initializable {
         this.shapesDropdown.getSelectionModel().selectedItemProperty().addListener(
             (selected, oldValue, newValue) -> {
                 if (newValue != null) {
-                    this.dashboard.createNewShape(newValue);
-                    this.updateShapesList();
+                    Shape shape = this.dashboard.createNewShape(newValue);
+                    if (shape != null) {
+                        this.shapesListView.getItems().add(shape.toString());
+                    }
 //                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
             }
@@ -39,22 +41,17 @@ public class DashboardController implements Initializable {
 
     private void initShapesList() {
         this.shapesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        this.updateShapesList();
-    }
-
-    private void updateShapesList() {
         this.shapesListView.getItems().clear();
         this.dashboard.getShapes().forEach((shape) -> this.shapesListView.getItems().add(shape.toString()));
     }
 
-
     @FXML
-    private void saveToDatabase(ActionEvent event) {
-        System.out.println("TODO: Save input to database");
+    private void saveToFile(ActionEvent event) {
+        System.out.println("TODO: Save input to file");
     }
 
     @FXML
-    private void loadFromTextFile(ActionEvent event) {
+    private void loadFromFile(ActionEvent event) {
         System.out.println("TODO: Load data from text file");
     }
 
@@ -67,7 +64,10 @@ public class DashboardController implements Initializable {
     private void deleteSelectedShapes(ActionEvent event) {
         List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         this.dashboard.deleteShapes(selectedItems);
-        this.updateShapesList();
+        for (int i = selectedItems.size() - 1; i >= 0; i--) {
+            this.shapesListView.getItems().remove((int) selectedItems.get(i));
+        }
+        this.shapesListView.getSelectionModel().clearSelection();
     }
 
 }
