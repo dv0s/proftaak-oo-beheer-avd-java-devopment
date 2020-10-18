@@ -1,7 +1,6 @@
 package nl.avd.javadev.proftaak;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -47,14 +46,13 @@ public class DashboardController implements Initializable {
         this.dashboard.getShapes().forEach((shape) -> this.shapesListView.getItems().add(shape.toString()));
     }
 
-
     @FXML
-    private void saveToDatabase(ActionEvent event) {
-        System.out.println("TODO: Save input to database");
+    private void saveToFile(ActionEvent event) {
+        System.out.println("TODO: Save input to file");
     }
 
     @FXML
-    private void loadFromTextFile(ActionEvent event) {
+    private void loadFromFile(ActionEvent event) {
         System.out.println("TODO: Load data from text file");
     }
 
