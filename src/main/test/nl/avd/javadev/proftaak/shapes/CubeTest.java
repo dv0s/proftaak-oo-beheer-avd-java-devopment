@@ -1,5 +1,6 @@
 package nl.avd.javadev.proftaak.shapes;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,65 +11,63 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 class CubeTest {
+    private static Map<String, String> properties;
+    private static Cube sut;
+
+    @BeforeAll
+    static void beforeAll(){
+        properties = new HashMap<>();
+        sut = new Cube(null);
+    }
 
     @Test
-    @DisplayName("Return 1000 when values are 10, 10 and 10")
-    void getVolume_for10and10and10_expect1000() {
+    @DisplayName("Return 1000.00 when values are 10 and 10")
+    void getVolume_for10and10_expect1000() {
         // Arrange
-        Map<String, String> properties = new HashMap<>();
         properties.put("length" , "10");
         properties.put("width" , "10");
         properties.put("height" , "10");
-
-        Cube cube = new Cube(null);
-
-        cube.setProperties(properties);
+        sut.setProperties(properties);
 
         // Act
-        double actual = cube.getVolume();
+        double actual = sut.getVolume();
 
         // Assert
-        assertEquals(1000, actual);
+        assertEquals(1000.00, actual, 0.01);
+    }
+
+    @Test
+    @DisplayName("Return NumberFormatException when values are garbage")
+    void getVolume_forGarbage_returnGarbage() {
+        // Arrange
+        properties.put("length" , "pannekoek");
+        properties.put("width" , "pannekoek");
+        properties.put("height" , "pannekoek");
+        sut.setProperties(properties);
+
+        // Act
+
+        // Assert
+        assertThrows(NumberFormatException.class, () -> {
+            sut.getVolume();
+        });
     }
 
     @Test
     @DisplayName("Don't allow negative values")
     void getVolume_forNegativeValues_returnException(){
         // Arrange
+        properties.put("length" , "-10");
+        properties.put("width" , "-10");
+        properties.put("height" , "-10");
+        sut.setProperties(properties);
 
         // Act
 
         // Assert
         assertThrows(InputMismatchException.class, () -> {
-            Map<String, String> properties = new HashMap<>();
-            properties.put("length" , "-10");
-            properties.put("width" , "-10");
-            properties.put("height" , "-10");
-
-            Cube cube = new Cube(null);
-
-            cube.setProperties(properties);
-            cube.getVolume();
+            sut.getVolume();
         });
 
-    }
-
-    @Test
-    @DisplayName("Throw exception when garbage has been given.")
-    void getVolume_forGarbage_throwsException() {
-        // Arrange
-        // Act
-        // Assert
-        assertThrows(NumberFormatException.class, () -> {
-            Map<String, String> properties = new HashMap<>();
-            properties.put("length" , "10");
-            properties.put("width" , "andere tekst");
-            properties.put("height" , "pannekoek");
-
-            Cube cube = new Cube(null);
-
-            cube.setProperties(properties);
-            cube.getVolume();
-        });
     }
 }

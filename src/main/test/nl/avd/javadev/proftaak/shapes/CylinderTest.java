@@ -8,21 +8,21 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class ConeTest {
-
+class CylinderTest {
     private static Map<String, String> properties;
-    private static Cone sut;
+    private static Cylinder sut;
 
     @BeforeAll
     static void beforeAll(){
         properties = new HashMap<>();
-        sut = new Cone(null);
+        sut = new Cylinder(null);
     }
 
     @Test
-    @DisplayName("Return 1047.2 when values are 10 and 10")
+    @DisplayName("Return 3141.59 when values are 10 and 10")
     void getVolume_for10and10_expect1000() {
         // Arrange
         properties.put("radius" , "10");
@@ -33,7 +33,7 @@ class ConeTest {
         double actual = sut.getVolume();
 
         // Assert
-        assertEquals(1047.2, actual, 0.1);
+        assertEquals(3141.59, actual, 0.01);
     }
 
     @Test

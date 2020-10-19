@@ -20,7 +20,7 @@ public class Cube extends Shape implements Calculable {
     }
 
     @Override
-    public double getVolume() throws NumberFormatException {
+    public double getVolume() throws NumberFormatException, InputMismatchException {
         if (this.getProperty("length") < 0){
             throw new InputMismatchException("Length cannot be lower than 0");
         }
