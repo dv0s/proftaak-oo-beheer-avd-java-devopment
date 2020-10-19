@@ -32,6 +32,7 @@ class CubeTest {
     }
 
     @Test
+    @DisplayName("Don't allow negative values")
     void getVolume_forNegativeValues_returnException(){
         // Arrange
 
@@ -53,8 +54,8 @@ class CubeTest {
     }
 
     @Test
-    @DisplayName("Throw exception when a String has been given.")
-    void getVolume_throwsExceptionOn() {
+    @DisplayName("Throw exception when garbage has been given.")
+    void getVolume_forGarbage_throwsException() {
         // Arrange
         // Act
         // Assert
