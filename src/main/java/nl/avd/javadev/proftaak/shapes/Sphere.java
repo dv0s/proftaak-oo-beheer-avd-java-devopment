@@ -4,8 +4,6 @@ import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.Calculable;
 
-import java.util.Map;
-
 public class Sphere  extends Shape implements Calculable {
 
     public Sphere(Integer id) {

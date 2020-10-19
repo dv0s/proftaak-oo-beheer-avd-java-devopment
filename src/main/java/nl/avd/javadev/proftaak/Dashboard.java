@@ -43,4 +43,26 @@ public class Dashboard {
         }
     }
 
+    public void exportShapes() {
+        FileService fileService = new FileService();
+        fileService.writeToFile(this.shapes.getShapes());
+    }
+
+    public List<Shape> importShapes() {
+        FileService fileService = new FileService();
+        List<Map> shapesData = fileService.getDataFromFile();
+        List<Shape> appendedShapes = new ArrayList<>();
+
+        for (Map shapeData : shapesData) {
+            Shape newShape = this.shapes.addShape(new HashMap<>() {{
+                put("type", shapeData.get("type"));
+            }});
+            newShape.setProperties((Map) shapeData.get("properties"));
+            newShape.setId(this.shapeDatabase.save(newShape));
+            appendedShapes.add(newShape);
+        }
+
+        return appendedShapes;
+    }
+
 }
