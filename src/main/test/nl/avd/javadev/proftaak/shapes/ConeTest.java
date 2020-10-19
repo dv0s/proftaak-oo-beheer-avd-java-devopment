@@ -1,5 +1,7 @@
 package nl.avd.javadev.proftaak.shapes;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,20 +13,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ConeTest {
 
+    private static Map<String, String> properties;
+    private static Cone cone;
+
+    @BeforeAll
+    static void beforeAll(){
+        properties = new HashMap<>();
+        cone = new Cone(null);
+    }
+
     @Test
     @DisplayName("Return 1047.2 when values are 10 and 10")
     void getVolume_for10and10_expect1000() {
         // Arrange
-        Map<String, String> properties = new HashMap<>();
         properties.put("radius" , "10");
         properties.put("height" , "10");
-
-        Cone cone = new Cone(null);
-
         cone.setProperties(properties);
 
         // Act
-        double actual = cone.getVolume();
+        double actual = this.cone.getVolume();
 
         // Assert
         assertEquals(1047.2, actual, 0.1);
@@ -34,19 +41,15 @@ class ConeTest {
     @DisplayName("Return NumberFormatException when values are garbage")
     void getVolume_forGarbage_returnGarbage() {
         // Arrange
+        properties.put("radius" , "pannekoek");
+        properties.put("height" , "pannekoek");
+        cone.setProperties(properties);
+
+        // Act
 
         // Assert
         assertThrows(NumberFormatException.class, () -> {
-            Map<String, String> properties = new HashMap<>();
-            properties.put("radius" , "10");
-            properties.put("height" , "pannekoek");
-
-            Cone cone = new Cone(null);
-
-            cone.setProperties(properties);
-
-            // Act
-            double actual = cone.getVolume();
+            cone.getVolume();
         });
     }
 
@@ -54,18 +57,14 @@ class ConeTest {
     @DisplayName("Don't allow negative values")
     void getVolume_forNegativeValues_returnException(){
         // Arrange
+        properties.put("radius" , "-10");
+        properties.put("height" , "-10");
+        cone.setProperties(properties);
 
         // Act
 
         // Assert
         assertThrows(InputMismatchException.class, () -> {
-            Map<String, String> properties = new HashMap<>();
-            properties.put("radius" , "-10");
-            properties.put("height" , "-10");
-
-            Cone cone = new Cone(null);
-
-            cone.setProperties(properties);
             cone.getVolume();
         });
 
