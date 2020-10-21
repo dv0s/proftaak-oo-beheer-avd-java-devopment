@@ -1,7 +1,6 @@
 package nl.avd.javadev.proftaak.shapes;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,23 +8,24 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
-class CubeTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class CylinderTest {
     private static Map<String, String> properties;
-    private static Cube sut;
+    private static Cylinder sut;
 
     @BeforeAll
     static void beforeAll(){
         properties = new HashMap<>();
-        sut = new Cube(null);
+        sut = new Cylinder(null);
     }
 
     @Test
-    @DisplayName("Return 1000.00 when values are 10 and 10")
+    @DisplayName("Return 3141.59 when values are 10 and 10")
     void getVolume_for10and10_expect1000() {
         // Arrange
-        properties.put("length" , "10");
-        properties.put("width" , "10");
+        properties.put("radius" , "10");
         properties.put("height" , "10");
         sut.setProperties(properties);
 
@@ -33,15 +33,14 @@ class CubeTest {
         double actual = sut.getVolume();
 
         // Assert
-        assertEquals(1000.00, actual, 0.01);
+        assertEquals(3141.59, actual, 0.01);
     }
 
     @Test
     @DisplayName("Return NumberFormatException when values are garbage")
     void getVolume_forGarbage_returnGarbage() {
         // Arrange
-        properties.put("length" , "pannekoek");
-        properties.put("width" , "pannekoek");
+        properties.put("radius" , "pannekoek");
         properties.put("height" , "pannekoek");
         sut.setProperties(properties);
 
@@ -57,8 +56,7 @@ class CubeTest {
     @DisplayName("Don't allow negative values")
     void getVolume_forNegativeValues_returnException(){
         // Arrange
-        properties.put("length" , "-10");
-        properties.put("width" , "-10");
+        properties.put("radius" , "-10");
         properties.put("height" , "-10");
         sut.setProperties(properties);
 

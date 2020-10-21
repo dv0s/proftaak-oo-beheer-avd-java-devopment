@@ -1,2 +1,2 @@
 Cone - radius: 1, height: 1
-Cube - length: 1, width: 2, height: 3
+Cylinder - radius: 12, height: 2

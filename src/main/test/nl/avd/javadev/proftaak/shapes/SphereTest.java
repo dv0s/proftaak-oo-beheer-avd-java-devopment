@@ -1,7 +1,6 @@
 package nl.avd.javadev.proftaak.shapes;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,40 +8,38 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
-class CubeTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class SphereTest {
     private static Map<String, String> properties;
-    private static Cube sut;
+    private static Sphere sut;
 
     @BeforeAll
-    static void beforeAll(){
+    static void beforeAll() {
         properties = new HashMap<>();
-        sut = new Cube(null);
+        sut = new Sphere(null);
     }
 
     @Test
-    @DisplayName("Return 1000.00 when values are 10 and 10")
+    @DisplayName("Return 9.2 when values is 1.3 for radius of the Sphere")
     void getVolume_for10and10_expect1000() {
         // Arrange
-        properties.put("length" , "10");
-        properties.put("width" , "10");
-        properties.put("height" , "10");
+        properties.put("radius", "1.3");
         sut.setProperties(properties);
 
         // Act
         double actual = sut.getVolume();
 
         // Assert
-        assertEquals(1000.00, actual, 0.01);
+        assertEquals(9.2, actual, 0.1);
     }
 
     @Test
     @DisplayName("Return NumberFormatException when values are garbage")
     void getVolume_forGarbage_returnGarbage() {
         // Arrange
-        properties.put("length" , "pannekoek");
-        properties.put("width" , "pannekoek");
-        properties.put("height" , "pannekoek");
+        properties.put("radius", "pannekoek");
         sut.setProperties(properties);
 
         // Act
@@ -55,11 +52,9 @@ class CubeTest {
 
     @Test
     @DisplayName("Don't allow negative values")
-    void getVolume_forNegativeValues_returnException(){
+    void getVolume_forNegativeValues_returnException() {
         // Arrange
-        properties.put("length" , "-10");
-        properties.put("width" , "-10");
-        properties.put("height" , "-10");
+        properties.put("radius", "-1.3");
         sut.setProperties(properties);
 
         // Act
