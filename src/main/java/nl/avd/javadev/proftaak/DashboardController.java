@@ -9,11 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
+import org.w3c.dom.Text;
 
 public class DashboardController implements Initializable {
 
     @FXML public ComboBox<String> shapesDropdown;
     @FXML public ListView shapesListView;
+    @FXML public TextField calcVolSelectedShapes;
+    @FXML public TextField calcVolAllShapes;
     private Dashboard dashboard = new Dashboard();
 
     @Override
@@ -58,8 +62,19 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void calculateTotalContents(ActionEvent event) {
-        System.out.println("TODO: Calculate total contents of all shapes combined");
+    private void calculateTotalVolumeSelectedShapes(ActionEvent event) {
+        double total = 0.0;
+        List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
+        for (int i = 0; i < selectedItems.size(); i++) {
+            total += 1.0;
+        }
+        this.calcVolSelectedShapes.setText("" + total);
+    }
+
+    @FXML
+    private void calculateTotalVolumeAllShapes(ActionEvent event) {
+        double total = this.dashboard.getShapes().stream().mapToDouble(shape -> shape.volume).sum();
+        this.calcVolAllShapes.setText("" + total);
     }
 
     @FXML
