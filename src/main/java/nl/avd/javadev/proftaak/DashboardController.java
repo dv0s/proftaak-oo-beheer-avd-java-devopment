@@ -3,6 +3,8 @@ package nl.avd.javadev.proftaak;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,12 +12,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
-import org.w3c.dom.Text;
 
 public class DashboardController implements Initializable {
 
     @FXML public ComboBox<String> shapesDropdown;
-    @FXML public ListView shapesListView;
+    @FXML public ListView<String> shapesListView;
     @FXML public TextField calcVolSelectedShapes;
     @FXML public TextField calcVolAllShapes;
     private Dashboard dashboard = new Dashboard();
@@ -64,7 +65,7 @@ public class DashboardController implements Initializable {
     @FXML
     private void calculateTotalVolumeSelectedShapes(ActionEvent event) {
         double total = 0.0;
-        List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
+        ObservableList<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         for (int i = 0; i < selectedItems.size(); i++) {
             total += this.dashboard.getShape(i).volume;
         }
@@ -79,10 +80,10 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void deleteSelectedShapes(ActionEvent event) {
-        List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
+        ObservableList<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         this.dashboard.deleteShapes(selectedItems);
         for (int i = selectedItems.size() - 1; i >= 0; i--) {
-            this.shapesListView.getItems().remove((int) selectedItems.get(i));
+            this.shapesListView.getItems().remove(selectedItems.get(i));
         }
         this.shapesListView.getSelectionModel().clearSelection();
     }
