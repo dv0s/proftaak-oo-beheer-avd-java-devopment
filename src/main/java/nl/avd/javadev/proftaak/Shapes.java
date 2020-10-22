@@ -44,7 +44,7 @@ public class Shapes {
         return shape;
     }
 
-    private Shape getByIndex(Integer index) {
+    public Shape getByIndex(Integer index) {
         return this.shapes.get(index);
     }
 

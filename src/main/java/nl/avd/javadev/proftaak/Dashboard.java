@@ -15,6 +15,10 @@ public class Dashboard {
         return this.shapes.getShapes();
     }
 
+    public Shape getShape(int index){
+        return this.shapes.getByIndex(index);
+    }
+
     public ArrayList<String> getShapeOptions() {
         ArrayList<String> options = new ArrayList<>();
         for (ShapeType value : ShapeType.values()) {

@@ -66,7 +66,7 @@ public class DashboardController implements Initializable {
         double total = 0.0;
         List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         for (int i = 0; i < selectedItems.size(); i++) {
-            total += 1.0;
+            total += this.dashboard.getShape(i).volume;
         }
         this.calcVolSelectedShapes.setText("" + total);
     }
