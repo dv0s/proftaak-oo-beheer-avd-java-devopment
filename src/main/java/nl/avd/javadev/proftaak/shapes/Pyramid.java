@@ -33,8 +33,4 @@ public class Pyramid  extends Shape implements Calculable {
         return (this.getProperty("length") * this.getProperty("width") * this.getProperty("height")) / 3.0;
     }
 
-    @Override
-    public void calculateVolume() {
-
-    }
 }

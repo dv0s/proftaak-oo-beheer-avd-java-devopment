@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Shape {
+public abstract class Shape {
 
     private Stage window;
     private ShapeDatabase shapeDatabase = new ShapeDatabase();

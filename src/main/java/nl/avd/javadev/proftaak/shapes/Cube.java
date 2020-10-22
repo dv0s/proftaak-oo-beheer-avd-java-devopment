@@ -33,9 +33,4 @@ public class Cube extends Shape implements Calculable {
         return this.getProperty("length") * this.getProperty("width") * this.getProperty("height");
     }
 
-    @Override
-    public void calculateVolume() {
-
-    }
-
 }

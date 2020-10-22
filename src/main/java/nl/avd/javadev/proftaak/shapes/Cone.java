@@ -33,10 +33,4 @@ public class Cone extends Shape implements Calculable {
         return (1.0/3) * Math.PI  * this.getProperty("radius") * this.getProperty("radius") * this.getProperty("height");
     }
 
-    @Override
-    public void calculateVolume() {
-
-    }
-
-
 }

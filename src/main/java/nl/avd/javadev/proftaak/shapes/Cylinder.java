@@ -29,8 +29,4 @@ public class Cylinder extends Shape implements Calculable {
         return Math.PI * (this.getProperty("radius")*this.getProperty("radius")) * this.getProperty("height");
     }
 
-    @Override
-    public void calculateVolume() {
-
-    }
 }

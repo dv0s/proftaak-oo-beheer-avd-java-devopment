@@ -26,8 +26,4 @@ public class Sphere  extends Shape implements Calculable {
         return (4.0 / 3.0) * Math.PI * (this.getProperty("radius")*this.getProperty("radius")*this.getProperty("radius"));
     }
 
-    @Override
-    public void calculateVolume() {
-
-    }
 }

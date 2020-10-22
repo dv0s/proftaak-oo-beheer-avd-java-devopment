@@ -33,8 +33,4 @@ public class Prism  extends Shape implements Calculable {
         return ((0.5) * (this.getProperty("triangleBase") * this.getProperty("triangleHeight"))) * this.getProperty("prismHeight");
     }
 
-    @Override
-    public void calculateVolume() {
-
-    }
 }
