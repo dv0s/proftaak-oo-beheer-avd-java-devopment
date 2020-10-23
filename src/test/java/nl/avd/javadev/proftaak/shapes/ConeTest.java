@@ -3,7 +3,6 @@ package nl.avd.javadev.proftaak.shapes;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
