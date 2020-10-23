@@ -28,9 +28,9 @@ public class FileService {
         }
     }
 
-    public List<Map<String, Object> > getDataFromFile() {
+    public List<Map<String, ?> > getDataFromFile() {
         try(BufferedReader reader = new BufferedReader(new FileReader(this.filename))) {
-            List<Map<String, Object> > shapes = new ArrayList<>();
+            List<Map<String, ?> > shapes = new ArrayList<>();
             for(String line; (line = reader.readLine()) != null; ) {
                 shapes.add(this.stringToShape(line));
             }
@@ -41,7 +41,7 @@ public class FileService {
         return null;
     }
 
-    private Map<String, Object> stringToShape(String shapeString) {
+    private Map<String, ?> stringToShape(String shapeString) {
         String propertiesString = shapeString.split(" - ")[1];
         String[] propertyPairs = propertiesString.split(", ");
         Map<String, String> properties = new HashMap<>();
