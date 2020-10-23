@@ -85,6 +85,7 @@ public class DashboardController implements Initializable {
             this.shapesListView.getItems().remove((int) selectedItems.get(i));
         }
         this.shapesListView.getSelectionModel().clearSelection();
+        this.calculateVolumeAllShapes();
     }
 
 }
