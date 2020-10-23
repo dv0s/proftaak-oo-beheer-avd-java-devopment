@@ -12,14 +12,15 @@ import javafx.scene.control.TextField;
 
 public class DashboardController implements Initializable {
 
-    @FXML public ComboBox<String> shapesDropdown;
-    @FXML public ListView<String> shapesListView;
-    @FXML public TextField calcVolSelectedShapes;
-    @FXML public TextField calcVolAllShapes;
-    private Dashboard dashboard = new Dashboard();
+    @FXML private ComboBox<String> shapesDropdown;
+    @FXML private ListView<String> shapesListView;
+    @FXML private TextField calcVolSelectedShapes;
+    @FXML private TextField calcVolAllShapes;
+    private Dashboard dashboard;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.dashboard = new Dashboard();
         this.fillShapesDropdown();
         this.initShapesList();
     }
@@ -69,7 +70,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void calculateVolumeSelectedShapes() {
-        double total = 0.0;
+        Double total = 0.0;
         List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         for (int i = 0; i < selectedItems.size(); i++) {
             total += this.dashboard.getShape(selectedItems.get(i)).volume;

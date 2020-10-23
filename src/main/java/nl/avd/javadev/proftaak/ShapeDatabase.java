@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ShapeDatabase extends Database<Shape> {
+public class ShapeDatabase extends Database {
 
     public Integer save(Shape shape) {
         return useStatement("INSERT INTO shapes (type, properties, volume) VALUES (?, ?, ?)", statement -> {
@@ -14,6 +14,7 @@ public class ShapeDatabase extends Database<Shape> {
             statement.setDouble(3, ((Calculable) shape).getVolume());
             statement.execute();
             ResultSet rs = statement.getGeneratedKeys();
+
             return rs.next() ? rs.getInt(1) : null;
         });
     }
@@ -21,6 +22,7 @@ public class ShapeDatabase extends Database<Shape> {
     public Integer delete(Shape shape) {
         return useStatement("DELETE FROM shapes WHERE id = ?", statement -> {
             statement.setInt(1, shape.getId());
+
             return statement.executeUpdate();
         });
     }
@@ -30,10 +32,12 @@ public class ShapeDatabase extends Database<Shape> {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             HashMap<String, Object> shapeData = new HashMap<>();
+
             while (resultSet.next()) {
                 shapeData.put("properties", resultSet.getString(1));
                 shapeData.put("volume", resultSet.getDouble(2));
             }
+
             return shapeData;
         });
     }

@@ -28,15 +28,13 @@ public class FileService {
         }
     }
 
-    public List<Map> getDataFromFile() {
+    public List<Map<String, Object> > getDataFromFile() {
         try(BufferedReader reader = new BufferedReader(new FileReader(this.filename))) {
-            List<Map> shapes = new ArrayList<>();
+            List<Map<String, Object> > shapes = new ArrayList<>();
             for(String line; (line = reader.readLine()) != null; ) {
                 shapes.add(this.stringToShape(line));
             }
             return shapes;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,8 +45,7 @@ public class FileService {
         String propertiesString = shapeString.split(" - ")[1];
         String[] propertyPairs = propertiesString.split(", ");
         Map<String, String> properties = new HashMap<>();
-        for (int i = 0; i < propertyPairs.length; i++) {
-            String property = propertyPairs[i];
+        for (String property : propertyPairs) {
             String[] keyValue = property.split(": ");
             properties.put(keyValue[0], keyValue[1]);
         }

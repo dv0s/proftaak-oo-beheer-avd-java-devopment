@@ -4,23 +4,24 @@ import java.util.*;
 
 public class Dashboard {
 
-    private Shapes shapes = new Shapes();
-    private ShapeDatabase shapeDatabase = new ShapeDatabase();
+    private Shapes shapes;
 
     public Dashboard() {
-        this.shapes.addShapes(this.shapeDatabase.getAll());
+        this.shapes = new Shapes();
+        ShapeDatabase shapeDatabase = new ShapeDatabase();
+        this.shapes.addShapes(shapeDatabase.getAll());
     }
 
     public ArrayList<Shape> getShapes() {
         return this.shapes.getShapes();
     }
 
-    public Shape getShape(int index){
+    public Shape getShape(Integer index){
         return this.shapes.getByIndex(index);
     }
 
-    public ArrayList<String> getShapeOptions() {
-        ArrayList<String> options = new ArrayList<>();
+    public List<String> getShapeOptions() {
+        List<String> options = new ArrayList<>();
         for (ShapeType value : ShapeType.values()) {
             options.add(value.toString());
         }
@@ -33,7 +34,8 @@ public class Dashboard {
         Shape shape = this.shapes.addShape(shapeData);
         shape.getUserInput();
         if (shape.getProperties().size() > 0) {
-            shape.setId(this.shapeDatabase.save(shape));
+            ShapeDatabase shapeDatabase = new ShapeDatabase();
+            shape.setId(shapeDatabase.save(shape));
             shape.volume = ((Calculable) shape).getVolume();
             return shape;
         }
@@ -54,16 +56,17 @@ public class Dashboard {
     }
 
     public List<Shape> importShapes() {
+        ShapeDatabase shapeDatabase = new ShapeDatabase();
         FileService fileService = new FileService();
-        List<Map> shapesData = fileService.getDataFromFile();
+        List<Map<String, Object>> shapesData = fileService.getDataFromFile();
         List<Shape> appendedShapes = new ArrayList<>();
 
-        for (Map shapeData : shapesData) {
+        for (Map<String, Object> shapeData : shapesData) {
             Shape newShape = this.shapes.addShape(new HashMap<>() {{
                 put("type", shapeData.get("type"));
             }});
             newShape.setProperties((Map) shapeData.get("properties"));
-            newShape.setId(this.shapeDatabase.save(newShape));
+            newShape.setId(shapeDatabase.save(newShape));
             newShape.volume = ((Calculable) newShape).getVolume();
             appendedShapes.add(newShape);
         }

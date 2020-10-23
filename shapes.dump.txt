@@ -1,2 +1,16 @@
+Cone - radius: 1, height: 2
+Cone - radius: 3, height: 6
+Cone - radius: 1, height: 1
+Cylinder - radius: 12, height: 2
+Cone - radius: 1, height: 2
+Cone - radius: 3, height: 6
+Cone - radius: 1, height: 1
+Cylinder - radius: 12, height: 2
+Cone - radius: 1, height: 2
+Cone - radius: 3, height: 6
+Cone - radius: 1, height: 1
+Cylinder - radius: 12, height: 2
+Cone - radius: 1, height: 2
+Cone - radius: 3, height: 6
 Cone - radius: 1, height: 1
 Cylinder - radius: 12, height: 2

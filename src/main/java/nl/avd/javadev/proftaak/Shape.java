@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class Shape {
+public class Shape {
 
     private ShapeDatabase shapeDatabase = new ShapeDatabase();
     protected Integer id = null;

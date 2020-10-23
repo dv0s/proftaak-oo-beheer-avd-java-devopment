@@ -2,7 +2,7 @@ package nl.avd.javadev.proftaak;
 
 import java.sql.*;
 
-public abstract class Database<Entity> {
+public class Database {
 
     @FunctionalInterface
     interface UsesStatement<Result> {
