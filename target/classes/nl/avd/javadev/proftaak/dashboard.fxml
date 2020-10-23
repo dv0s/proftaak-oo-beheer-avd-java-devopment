@@ -83,12 +83,7 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <Button onAction="#calculateTotalVolumeSelectedShapes" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Calculate volume selected shapes">
-                            <VBox.margin>
-                                <Insets bottom="16.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button onAction="#calculateTotalVolumeAllShapes" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Calculate volume all shapes">
+                        <Button onAction="#calculateVolumeSelectedShapes" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Calculate volume selected shapes">
                             <VBox.margin>
                                 <Insets bottom="16.0" />
                             </VBox.margin>

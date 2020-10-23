@@ -34,6 +34,7 @@ public class Dashboard {
         shape.showStage();
         if (shape.getProperties().size() > 0) {
             shape.setId(this.shapeDatabase.save(shape));
+            shape.volume = ((Calculable) shape).getVolume();
             return shape;
         }
         return null;

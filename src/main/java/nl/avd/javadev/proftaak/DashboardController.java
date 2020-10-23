@@ -36,6 +36,8 @@ public class DashboardController implements Initializable {
                     Shape shape = this.dashboard.createNewShape(newValue);
                     if (shape != null) {
                         this.shapesListView.getItems().add(shape.toString());
+                        Double currentTotal = Double.parseDouble(this.calcVolAllShapes.getText());
+                        this.calcVolAllShapes.setText(String.valueOf(currentTotal + shape.volume));
                     }
 //                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
@@ -47,6 +49,12 @@ public class DashboardController implements Initializable {
         this.shapesListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         this.shapesListView.getItems().clear();
         this.dashboard.getShapes().forEach((shape) -> this.shapesListView.getItems().add(shape.toString()));
+        this.calculateVolumeAllShapes();
+    }
+
+    private void calculateVolumeAllShapes() {
+        double total = this.dashboard.getShapes().stream().mapToDouble(shape -> shape.volume).sum();
+        this.calcVolAllShapes.setText(String.valueOf(total));
     }
 
     @FXML
@@ -63,19 +71,13 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void calculateTotalVolumeSelectedShapes() {
+    private void calculateVolumeSelectedShapes() {
         double total = 0.0;
         ObservableList<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         for (int i = 0; i < selectedItems.size(); i++) {
             total += this.dashboard.getShape(selectedItems.get(i)).volume;
         }
         this.calcVolSelectedShapes.setText(String.valueOf(total));
-    }
-
-    @FXML
-    private void calculateTotalVolumeAllShapes() {
-        double total = this.dashboard.getShapes().stream().mapToDouble(shape -> shape.volume).sum();
-        this.calcVolAllShapes.setText(String.valueOf(total));
     }
 
     @FXML
