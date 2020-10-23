@@ -7,15 +7,18 @@ import java.util.List;
 
 public class Shapes {
 
-    private ArrayList<Shape> shapes = new ArrayList<>();
-    private ShapeDatabase shapeDatabase = new ShapeDatabase();
+    private final ArrayList<Shape> shapes;
+
+    public Shapes() {
+        this.shapes = new ArrayList<>();
+    }
 
     public ArrayList<Shape> getShapes() {
         return this.shapes;
     }
 
-    public void addShapes(List<HashMap> shapes) {
-        for (HashMap shape : shapes) {
+    public void addShapes(List<HashMap<String, Object>> shapes) {
+        for (HashMap<String, Object> shape : shapes) {
             this.addShape(shape);
         }
     }
@@ -49,8 +52,9 @@ public class Shapes {
     }
 
     public void removeShape(int shapeIndex) {
+        ShapeDatabase shapeDatabase = new ShapeDatabase();
         Shape shape = this.getByIndex(shapeIndex);
-        this.shapeDatabase.delete(shape);
+        shapeDatabase.delete(shape);
         this.shapes.remove(shapeIndex);
     }
 }

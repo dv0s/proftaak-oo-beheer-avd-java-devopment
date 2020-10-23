@@ -10,16 +10,16 @@ public class Cube extends Shape implements Calculable {
 
     public Cube(Integer id) {
         super();
-        this.type = ShapeType.CUBE;
-        this.fields = new String[]{"length", "width", "height"};
-        this.id = id;
+        this.setType(ShapeType.CUBE);
+        this.setFields(new String[]{"length", "width", "height"});
+        this.setId(id);
         if (id != null) {
             this.getDataFromDatabase();
         }
     }
 
     @Override
-    public double getVolume() throws NumberFormatException, InputMismatchException {
+    public Double getVolume() throws NumberFormatException, InputMismatchException {
         if (this.getProperty("length") < 0){
             throw new InputMismatchException("Length cannot be lower than 0");
         }

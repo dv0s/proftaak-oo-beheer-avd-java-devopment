@@ -16,11 +16,14 @@ public class DashboardController implements Initializable {
     @FXML private ListView<String> shapesListView;
     @FXML private TextField calcVolSelectedShapes;
     @FXML private TextField calcVolAllShapes;
-    private Dashboard dashboard;
+    private final Dashboard dashboard;
+
+    public DashboardController() {
+        this.dashboard = new Dashboard();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.dashboard = new Dashboard();
         this.fillShapesDropdown();
         this.initShapesList();
     }
@@ -35,7 +38,7 @@ public class DashboardController implements Initializable {
                     if (shape != null) {
                         this.shapesListView.getItems().add(shape.toString());
                         Double currentTotal = Double.parseDouble(this.calcVolAllShapes.getText());
-                        this.calcVolAllShapes.setText(String.valueOf(currentTotal + shape.volume));
+                        this.calcVolAllShapes.setText(String.valueOf(currentTotal + shape.getVolume()));
                     }
 //                    this.shapesDropdown.getSelectionModel().clearSelection();
                 }
@@ -51,7 +54,7 @@ public class DashboardController implements Initializable {
     }
 
     private void calculateVolumeAllShapes() {
-        double total = this.dashboard.getShapes().stream().mapToDouble(shape -> shape.volume).sum();
+        double total = this.dashboard.getShapes().stream().mapToDouble(Shape::getVolume).sum();
         this.calcVolAllShapes.setText(String.valueOf(total));
     }
 
@@ -66,14 +69,15 @@ public class DashboardController implements Initializable {
         for (Shape shape : shapes) {
             this.shapesListView.getItems().add(shape.toString());
         }
+        this.calculateVolumeAllShapes();
     }
 
     @FXML
     private void calculateVolumeSelectedShapes() {
         Double total = 0.0;
         List<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
-        for (int i = 0; i < selectedItems.size(); i++) {
-            total += this.dashboard.getShape(selectedItems.get(i)).volume;
+        for (Integer selectedItem : selectedItems) {
+            total += this.dashboard.getShape(selectedItem).getVolume();
         }
         this.calcVolSelectedShapes.setText(String.valueOf(total));
     }

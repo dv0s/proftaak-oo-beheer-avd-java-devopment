@@ -9,16 +9,16 @@ public class Prism  extends Shape implements Calculable {
 
     public Prism(Integer id) {
         super();
-        this.type = ShapeType.PRISM;
-        this.fields = new String[]{"triangleBase", "triangleHeight", "prismHeight"};
-        this.id = id;
+        this.setType(ShapeType.PRISM);
+        this.setFields(new String[]{"triangleBase", "triangleHeight", "prismHeight"});
+        this.setId(id);
         if (id != null) {
             this.getDataFromDatabase();
         }
     }
 
     @Override
-    public double getVolume() throws NumberFormatException, InputMismatchException {
+    public Double getVolume() throws NumberFormatException, InputMismatchException {
         if (this.getProperty("triangleBase") < 0){
             throw new InputMismatchException("triangle base cannot be negative");
         }

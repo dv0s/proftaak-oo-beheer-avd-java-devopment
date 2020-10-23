@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class FileService {
 
-    private String filename;
+    private final String filename;
 
     public FileService() {
         this.filename = "shapes.dump.txt";

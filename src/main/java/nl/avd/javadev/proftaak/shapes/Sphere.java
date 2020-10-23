@@ -9,16 +9,16 @@ public class Sphere  extends Shape implements Calculable {
 
     public Sphere(Integer id) {
         super();
-        this.type = ShapeType.SPHERE;
-        this.fields = new String[]{"radius"};
-        this.id = id;
+        this.setType(ShapeType.SPHERE);
+        this.setFields(new String[]{"radius"});
+        this.setId(id);
         if (id != null) {
             this.getDataFromDatabase();
         }
     }
 
     @Override
-    public double getVolume() throws NumberFormatException, InputMismatchException {
+    public Double getVolume() throws NumberFormatException, InputMismatchException {
         if (this.getProperty("radius") < 0){
             throw new InputMismatchException("Radius cannot be negative");
         }

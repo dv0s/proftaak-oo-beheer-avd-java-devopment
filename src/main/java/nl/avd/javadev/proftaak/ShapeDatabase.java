@@ -42,10 +42,10 @@ public class ShapeDatabase extends Database {
         });
     }
 
-    public List<HashMap> getAll() {
+    public List<HashMap<String, Object>> getAll() {
         return useStatement("SELECT id, type FROM shapes", statement -> {
             ResultSet resultSet = statement.executeQuery();
-            List<HashMap> shapesResultData = new ArrayList<>();
+            List<HashMap<String, Object>> shapesResultData = new ArrayList<>();
 
             while (resultSet.next()) {
                 HashMap<String, Object> shapeData = new HashMap<>();

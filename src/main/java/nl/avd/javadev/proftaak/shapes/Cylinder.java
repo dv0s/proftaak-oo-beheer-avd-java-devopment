@@ -9,16 +9,16 @@ public class Cylinder extends Shape implements Calculable {
 
     public Cylinder(Integer id) {
         super();
-        this.type = ShapeType.CYLINDER;
-        this.fields = new String[]{"radius", "height"};
-        this.id = id;
+        this.setType(ShapeType.CYLINDER);
+        this.setFields(new String[]{"radius", "height"});
+        this.setId(id);
         if (id != null) {
             this.getDataFromDatabase();
         }
     }
 
     @Override
-    public double getVolume() throws NumberFormatException, InputMismatchException{
+    public Double getVolume() throws NumberFormatException, InputMismatchException{
         if (this.getProperty("radius") < 0){
             throw new InputMismatchException("Radius cannot be lower than 0");
         }

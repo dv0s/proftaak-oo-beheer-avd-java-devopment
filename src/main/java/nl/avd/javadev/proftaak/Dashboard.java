@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Dashboard {
 
-    private Shapes shapes;
+    private final Shapes shapes;
 
     public Dashboard() {
         this.shapes = new Shapes();
@@ -22,9 +22,11 @@ public class Dashboard {
 
     public List<String> getShapeOptions() {
         List<String> options = new ArrayList<>();
+
         for (ShapeType value : ShapeType.values()) {
             options.add(value.toString());
         }
+
         return options;
     }
 
@@ -33,12 +35,15 @@ public class Dashboard {
         shapeData.put("type", newShapeType);
         Shape shape = this.shapes.addShape(shapeData);
         shape.getUserInput();
+
         if (shape.getProperties().size() > 0) {
             ShapeDatabase shapeDatabase = new ShapeDatabase();
             shape.setId(shapeDatabase.save(shape));
-            shape.volume = ((Calculable) shape).getVolume();
+            shape.setVolume(((Calculable) shape).getVolume());
+
             return shape;
         }
+
         return null;
     }
 
@@ -67,7 +72,7 @@ public class Dashboard {
             }});
             newShape.setProperties((Map) shapeData.get("properties"));
             newShape.setId(shapeDatabase.save(newShape));
-            newShape.volume = ((Calculable) newShape).getVolume();
+            newShape.setVolume(((Calculable) newShape).getVolume());
             appendedShapes.add(newShape);
         }
 

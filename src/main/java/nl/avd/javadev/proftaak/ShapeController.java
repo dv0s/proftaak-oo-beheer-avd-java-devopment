@@ -17,10 +17,10 @@ public class ShapeController {
     private Button saveButton;
     private Button cancelButton;
     private Stage window;
-    protected String[] fields;
-    private String title;
-    private Map<String, TextField> textFields = new HashMap<>();
-    private Map<String, String> properties =  new HashMap<>();
+    private final String[] fields;
+    private final String title;
+    private final Map<String, TextField> textFields = new HashMap<>();
+    private final Map<String, String> properties =  new HashMap<>();
 
     public ShapeController(String title, String[] fields) {
         this.title = title;

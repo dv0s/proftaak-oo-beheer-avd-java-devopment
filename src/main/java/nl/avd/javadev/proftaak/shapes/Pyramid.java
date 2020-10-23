@@ -9,16 +9,16 @@ public class Pyramid  extends Shape implements Calculable {
 
     public Pyramid(Integer id) {
         super();
-        this.type = ShapeType.PYRAMID;
-        this.fields = new String[]{"length", "width", "height"};
-        this.id = id;
+        this.setType(ShapeType.PYRAMID);
+        this.setFields(new String[]{"length", "width", "height"});
+        this.setId(id);
         if (id != null) {
             this.getDataFromDatabase();
         }
     }
 
     @Override
-    public double getVolume() throws NumberFormatException, InputMismatchException {
+    public Double getVolume() throws NumberFormatException, InputMismatchException {
         if (this.getProperty("length") < 0){
             throw new InputMismatchException("Length cannot be negative");
         }

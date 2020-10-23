@@ -9,16 +9,16 @@ public class Cone extends Shape implements Calculable {
 
     public Cone(Integer id) {
         super();
-        this.type = ShapeType.CONE;
-        this.fields = new String[]{"radius", "height"};
-        this.id = id;
+        this.setType(ShapeType.CONE);
+        this.setFields(new String[]{"radius", "height"});
+        this.setId(id);
         if (id != null) {
             this.getDataFromDatabase();
         }
     }
 
     @Override
-    public double getVolume() {
+    public Double getVolume() {
         if (this.getProperty("radius") < 0){
             throw new InputMismatchException("Input for radius cannot be negative");
         }

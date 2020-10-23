@@ -1,16 +1,8 @@
 Cone - radius: 1, height: 2
-Cone - radius: 3, height: 6
-Cone - radius: 1, height: 1
-Cylinder - radius: 12, height: 2
-Cone - radius: 1, height: 2
-Cone - radius: 3, height: 6
-Cone - radius: 1, height: 1
-Cylinder - radius: 12, height: 2
-Cone - radius: 1, height: 2
-Cone - radius: 3, height: 6
-Cone - radius: 1, height: 1
-Cylinder - radius: 12, height: 2
-Cone - radius: 1, height: 2
-Cone - radius: 3, height: 6
-Cone - radius: 1, height: 1
-Cylinder - radius: 12, height: 2
+Cylinder - radius: 1, height: 2
+Cube - length: 1, width: 2, height: 3
+Cylinder - radius: 1, height: 2
+Prism - prismHeight: 3, triangleBase: 1, triangleHeight: 2
+Pyramid - length: 1, width: 2, height: 3
+Sphere - radius: 1
+Cylinder - radius: 6, height: 9
