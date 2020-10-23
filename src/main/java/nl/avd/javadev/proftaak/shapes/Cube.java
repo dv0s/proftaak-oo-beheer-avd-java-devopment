@@ -5,7 +5,6 @@ import nl.avd.javadev.proftaak.ShapeType;
 import nl.avd.javadev.proftaak.Calculable;
 
 import java.util.InputMismatchException;
-import java.util.Map;
 
 public class Cube extends Shape implements Calculable {
 
