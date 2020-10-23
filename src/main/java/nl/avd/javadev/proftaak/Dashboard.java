@@ -64,6 +64,7 @@ public class Dashboard {
             }});
             newShape.setProperties((Map) shapeData.get("properties"));
             newShape.setId(this.shapeDatabase.save(newShape));
+            newShape.volume = ((Calculable) newShape).getVolume();
             appendedShapes.add(newShape);
         }
 
