@@ -69,13 +69,13 @@ public class DashboardController implements Initializable {
         for (int i = 0; i < selectedItems.size(); i++) {
             total += this.dashboard.getShape(selectedItems.get(i)).volume;
         }
-        this.calcVolSelectedShapes.setText("" + total);
+        this.calcVolSelectedShapes.setText(String.valueOf(total));
     }
 
     @FXML
     private void calculateTotalVolumeAllShapes() {
         double total = this.dashboard.getShapes().stream().mapToDouble(shape -> shape.volume).sum();
-        this.calcVolAllShapes.setText("" + total);
+        this.calcVolAllShapes.setText(String.valueOf(total));
     }
 
     @FXML
