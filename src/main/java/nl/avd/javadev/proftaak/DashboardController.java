@@ -63,7 +63,7 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void calculateTotalVolumeSelectedShapes(ActionEvent event) {
+    private void calculateTotalVolumeSelectedShapes() {
         double total = 0.0;
         ObservableList<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         for (int i = 0; i < selectedItems.size(); i++) {
@@ -73,13 +73,13 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void calculateTotalVolumeAllShapes(ActionEvent event) {
+    private void calculateTotalVolumeAllShapes() {
         double total = this.dashboard.getShapes().stream().mapToDouble(shape -> shape.volume).sum();
         this.calcVolAllShapes.setText("" + total);
     }
 
     @FXML
-    private void deleteSelectedShapes(ActionEvent event) {
+    private void deleteSelectedShapes() {
         ObservableList<Integer> selectedItems = this.shapesListView.getSelectionModel().getSelectedIndices();
         this.dashboard.deleteShapes(selectedItems);
         for (int i = selectedItems.size() - 1; i >= 0; i--) {
