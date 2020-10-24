@@ -1,11 +1,13 @@
 package nl.avd.javadev.proftaak;
 
 import nl.avd.javadev.proftaak.shapes.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Shapes {
+public class Shapes implements Serializable {
 
     private final ArrayList<Shape> shapes;
 

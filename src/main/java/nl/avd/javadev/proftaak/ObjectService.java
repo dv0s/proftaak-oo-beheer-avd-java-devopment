@@ -14,7 +14,7 @@ public class ObjectService {
         this.filename = "shapes.dump.obj";
     }
 
-    public void writeShapes(List<Shape> shapes) {
+    public void writeShapes(ArrayList<Shape> shapes) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.filename))) {
             objectOutputStream.writeObject(shapes);
 

@@ -82,4 +82,14 @@ public class Dashboard {
         return appendedShapes;
     }
 
+    public void exportShapesToObject(){
+        ObjectService objectService = new ObjectService();
+        objectService.writeShapes(this.getShapes());
+    }
+
+    public List<Shape> importShapesToObject(){
+
+        return null;
+    }
+
 }

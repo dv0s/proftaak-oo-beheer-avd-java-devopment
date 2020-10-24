@@ -72,6 +72,19 @@ public class DashboardController implements Initializable {
         this.calculateVolumeAllShapes();
     }
 
+    @FXML private  void exportObjectAction(){
+        this.dashboard.exportShapesToObject();
+    }
+
+    @FXML
+    private void importObjectAction(){
+        List<Shape> shapes = this.dashboard.importShapesToObject();
+        for (Shape shape: shapes){
+            this.shapesListView.getItems().add(shape.toString());
+        }
+        this.calculateVolumeAllShapes();
+    }
+
     @FXML
     private void calculateVolumeSelectedShapes() {
         Double total = 0.0;
