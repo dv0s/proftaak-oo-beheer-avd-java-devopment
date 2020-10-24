@@ -1,10 +1,11 @@
 package nl.avd.javadev.proftaak;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Shape {
+public class Shape implements Serializable {
 
     private Integer id;
     private Double volume;

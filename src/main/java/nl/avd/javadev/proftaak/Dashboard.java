@@ -82,4 +82,28 @@ public class Dashboard {
         return appendedShapes;
     }
 
+    public void exportShapesToObject(){
+        ObjectService objectService = new ObjectService();
+        objectService.writeShapes(this.shapes.getShapes());
+    }
+
+    public List<Shape> importShapesFromObject(){
+        ShapeDatabase shapeDatabase = new ShapeDatabase();
+        ObjectService objectService = new ObjectService();
+        List<Shape> appendedShapes = new ArrayList<>();
+
+        for (Shape shape : objectService.readShapes()) {
+            Shape newShape = this.shapes.addShape(new HashMap<>() {{
+                put("type", shape.getType().toString());
+            }});
+
+            newShape.setProperties(shape.getProperties());
+            newShape.setId(shapeDatabase.save(newShape));
+            newShape.setVolume(((CalculableShape) newShape).getVolume());
+            appendedShapes.add(newShape);
+        }
+
+        return appendedShapes;
+    }
+
 }
