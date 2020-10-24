@@ -12,11 +12,9 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
-
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene((Parent) loadFXML("dashboard"));
+        Scene scene = new Scene((Parent) loadFXML("dashboard"));
         stage.setScene(scene);
         stage.setTitle("Dashboard");
         stage.show();
