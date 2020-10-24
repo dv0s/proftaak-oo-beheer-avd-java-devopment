@@ -39,7 +39,7 @@ public class Dashboard {
         if (shape.getProperties().size() > 0) {
             ShapeDatabase shapeDatabase = new ShapeDatabase();
             shape.setId(shapeDatabase.save(shape));
-            shape.setVolume(((Calculable) shape).getVolume());
+            shape.setVolume(((CalculableShape) shape).getVolume());
 
             return shape;
         }
@@ -75,7 +75,7 @@ public class Dashboard {
             Map<String, String> properties = (Map<String, String>) shapeData.get("properties");
             newShape.setProperties(properties);
             newShape.setId(shapeDatabase.save(newShape));
-            newShape.setVolume(((Calculable) newShape).getVolume());
+            newShape.setVolume(((CalculableShape) newShape).getVolume());
             appendedShapes.add(newShape);
         }
 

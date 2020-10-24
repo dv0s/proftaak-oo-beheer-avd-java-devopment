@@ -2,10 +2,10 @@ package nl.avd.javadev.proftaak.shapes;
 
 import nl.avd.javadev.proftaak.Shape;
 import nl.avd.javadev.proftaak.ShapeType;
-import nl.avd.javadev.proftaak.Calculable;
+import nl.avd.javadev.proftaak.CalculableShape;
 import java.util.InputMismatchException;
 
-public class Cone extends Shape implements Calculable {
+public class Cone extends Shape implements CalculableShape {
 
     public Cone(Integer id) {
         super();
