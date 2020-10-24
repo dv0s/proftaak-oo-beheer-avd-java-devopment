@@ -9,7 +9,7 @@ public class ShapeDatabase extends Database {
 
     public Integer save(Shape shape) {
         return useStatement("INSERT INTO shapes (type, properties, volume) VALUES (?, ?, ?)", statement -> {
-            statement.setString(1, shape.getType());
+            statement.setString(1, shape.getType().toString());
             statement.setString(2, shape.getPropertySting());
             statement.setDouble(3, ((Calculable) shape).getVolume());
             statement.execute();

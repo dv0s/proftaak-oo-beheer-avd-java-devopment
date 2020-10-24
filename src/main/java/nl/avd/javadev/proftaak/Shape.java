@@ -23,11 +23,6 @@ public class Shape {
         this.setProperties(shapeController.getShapeProperties());
     }
 
-    public String toString() {
-        String propertiesSting = this.getPropertySting();
-        return this.type + " - " + propertiesSting;
-    }
-
     protected void getDataFromDatabase() {
         ShapeDatabase shapeDatabase = new ShapeDatabase();
         HashMap<String, Object> shapeData = shapeDatabase.getShapeData(this.id);
@@ -71,8 +66,8 @@ public class Shape {
         return this.volume;
     }
 
-    public String getType() {
-        return this.type.toString();
+    public ShapeType getType() {
+        return this.type;
     }
 
     public void setType(ShapeType type) {
@@ -89,5 +84,10 @@ public class Shape {
 
     public void setProperties(Map<String,String> properties){
         this.properties = properties;
+    }
+
+    public String toString() {
+        String propertiesSting = this.getPropertySting();
+        return this.type + " - " + propertiesSting;
     }
 }
