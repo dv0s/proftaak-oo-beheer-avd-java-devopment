@@ -88,8 +88,24 @@ public class Dashboard {
     }
 
     public List<Shape> importShapesFromObject(){
+        ShapeDatabase shapeDatabase = new ShapeDatabase();
         ObjectService objectService = new ObjectService();
-        return objectService.readShapes();
+        List<Shape> shapesData = objectService.readShapes();
+        List<Shape> appendedShapes = new ArrayList<>();
+
+        for (Shape shapeData : shapesData) {
+            Shape newShape = this.shapes.addShape(new HashMap<>() {{
+                put("type", shapeData.getType().toString());
+            }});
+
+            Map<String, String> properties = (Map<String, String>) shapeData.getProperties();
+            newShape.setProperties(properties);
+            newShape.setId(shapeDatabase.save(newShape));
+            newShape.setVolume(((CalculableShape) newShape).getVolume());
+            appendedShapes.add(newShape);
+        }
+
+        return appendedShapes;
     }
 
 }
