@@ -63,14 +63,14 @@ public class Dashboard {
     public List<Shape> importShapes() {
         ShapeDatabase shapeDatabase = new ShapeDatabase();
         FileService fileService = new FileService();
-        List<Map<String, ?>> shapesData = fileService.getDataFromFile();
+        List<Map<String, Object>> shapesData = fileService.getDataFromFile();
         List<Shape> appendedShapes = new ArrayList<>();
 
         for (Map<String, ?> shapeData : shapesData) {
             Shape newShape = this.shapes.addShape(new HashMap<>() {{
                 put("type", shapeData.get("type"));
             }});
-            System.out.println(shapeData.get("properties"));
+
             @SuppressWarnings("unchecked")
             Map<String, String> properties = (Map<String, String>) shapeData.get("properties");
             newShape.setProperties(properties);

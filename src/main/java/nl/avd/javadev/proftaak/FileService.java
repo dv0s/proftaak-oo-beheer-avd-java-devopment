@@ -14,7 +14,7 @@ public class FileService {
         this.filename = "shapes.dump.txt";
     }
 
-    public void writeToFile(ArrayList<Shape> shapes) {
+    public void writeToFile(List<Shape> shapes) {
         if (shapes.size() > 0 ) {
             try {
                 PrintStream fileStream = new PrintStream(new File(this.filename));
@@ -28,9 +28,9 @@ public class FileService {
         }
     }
 
-    public List<Map<String, ?> > getDataFromFile() {
+    public List<Map<String, Object> > getDataFromFile() {
         try(BufferedReader reader = new BufferedReader(new FileReader(this.filename))) {
-            List<Map<String, ?> > shapes = new ArrayList<>();
+            List<Map<String, Object> > shapes = new ArrayList<>();
             for(String line; (line = reader.readLine()) != null; ) {
                 shapes.add(this.stringToShape(line));
             }
@@ -41,7 +41,7 @@ public class FileService {
         return null;
     }
 
-    private Map<String, ?> stringToShape(String shapeString) {
+    private Map<String, Object> stringToShape(String shapeString) {
         String propertiesString = shapeString.split(" - ")[1];
         String[] propertyPairs = propertiesString.split(", ");
         Map<String, String> properties = new HashMap<>();
