@@ -84,12 +84,12 @@ public class Dashboard {
 
     public void exportShapesToObject(){
         ObjectService objectService = new ObjectService();
-        objectService.writeShapes(this.getShapes());
+        objectService.writeShapes(this.shapes.getShapes());
     }
 
-    public List<Shape> importShapesToObject(){
-
-        return null;
+    public List<Shape> importShapesFromObject(){
+        ObjectService objectService = new ObjectService();
+        return objectService.readShapes();
     }
 
 }

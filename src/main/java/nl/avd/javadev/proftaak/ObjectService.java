@@ -25,11 +25,11 @@ public class ObjectService {
         }
     }
 
-    public Shapes readShapes() {
-        Shapes shapes = null;
+    public List<Shape> readShapes() {
+        List<Shape> shapes = null;
 
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(this.filename))) {
-            shapes = (Shapes) objectInputStream.readObject();
+            shapes = (List<Shape>) objectInputStream.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
