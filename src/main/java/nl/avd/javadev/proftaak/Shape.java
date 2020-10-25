@@ -1,6 +1,7 @@
 package nl.avd.javadev.proftaak;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -16,7 +17,7 @@ public class Shape implements Serializable {
     public Shape() {
         this.id = null;
         this.volume = null;
-        this.properties = new HashMap<>();
+        this.properties = new ArrayList<>();
     }
 
     public void getUserInput() {
