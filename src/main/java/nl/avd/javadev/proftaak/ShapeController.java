@@ -35,7 +35,7 @@ public class ShapeController {
         window.setTitle(this.title);
         window.setMinWidth(250);
         VBox layout = new VBox(16);
-        layout.setPadding(new Insets(20));
+        layout.setPadding(new Insets(16));
 
         this.setButtons();
 
@@ -60,6 +60,8 @@ public class ShapeController {
     private void setButtons() {
         this.saveButton = new Button("Save");
         this.cancelButton = new Button("Cancel");
+        this.saveButton.setPrefWidth(120);
+        this.cancelButton.setPrefWidth(120);
         this.saveButton.setOnAction(e -> this.saveAction());
         this.cancelButton.setOnAction(e -> this.cancelAction());
     }
